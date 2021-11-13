@@ -1,13 +1,7 @@
-import 'package:plant_tree/modules/authentication/login.dart';
-import 'package:plant_tree/modules/authentication/otp_screen.dart';
-import 'package:plant_tree/modules/authentication/reset_password.dart';
-import 'package:plant_tree/modules/authentication/reset_password_email.dart';
-import 'package:plant_tree/modules/authentication/signup.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:plant_tree/modules/authentication/index.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tree/routes.dart';
-
-import 'modules/dashboard/homepage.dart';
+import 'modules/dashboard/index.dart';
 
 void main(){
   runApp(const MyApp());

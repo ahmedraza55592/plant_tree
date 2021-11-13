@@ -3,14 +3,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_tree/styles/colors.dart';
 
 abstract class TextStyles {
-  static TextStyle get body {
-    return GoogleFonts.roboto(
+  static TextStyle get body => GoogleFonts.roboto(
         textStyle: TextStyle(
       color: AppColors.black,
       fontSize: 14.0,
       fontStyle: FontStyle.normal,
     ));
-  }
+
+  static TextStyle get body23 => GoogleFonts.roboto(
+        textStyle: TextStyle(
+      color: AppColors.black,
+      fontSize: 23.0,
+      fontStyle: FontStyle.normal,
+    ));
 
   static TextStyle get forgotPassword {
     return GoogleFonts.sourceSansPro(
