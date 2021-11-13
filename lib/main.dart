@@ -1,7 +1,7 @@
-import 'package:plant_tree/modules/authentication/index.dart';
+import 'package:plant_tree/modules/index.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tree/routes.dart';
-import 'modules/dashboard/index.dart';
+import 'modules/index.dart';
 
 void main(){
   runApp(const MyApp());

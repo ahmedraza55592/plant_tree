@@ -1,4 +1,4 @@
-import 'package:plant_tree/modules/dashboard/index.dart';
+import 'package:plant_tree/modules/index.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
