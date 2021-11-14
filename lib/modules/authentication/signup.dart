@@ -71,7 +71,7 @@ class _SignUpState extends State<SignUp> {
                     ButtonWidget(
                       buttonText: "Register",
                       onPressed: () {
-                        Navigator.pushNamed(context, '/homepage');
+                        Navigator.pushReplacementNamed(context, '/homepage');
                       },
                     ),
                     Padding(

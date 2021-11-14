@@ -53,13 +53,22 @@ class _LoginState extends State<Login> {
                     ),
                     const SizedBox(height: 15.0),
                     InkWell(
-                        onTap: () => Navigator.pushNamed(context, '/resetPasswordEmail'),
-                        child: Container(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              "Forgot Password? ",
-                              style: TextStyles.forgotPassword,
-                            ))),
+                      onTap: () =>
+                          Navigator.pushNamed(context, '/resetPasswordEmail'),
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "Forgot Password? ",
+                          style: GoogleFonts.sourceSansPro(
+                            textStyle: TextStyle(
+                              color: AppColors.black,
+                              fontStyle: FontStyle.normal,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 28.0),
                     ButtonWidget(
                       buttonText: "Login",
@@ -92,6 +101,25 @@ class _LoginState extends State<Login> {
                                             context, '/signup')),
                             ]),
                       ),
+                    ),
+                    const SizedBox(height: 10.0),
+                    Container(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "or",
+                        style: GoogleFonts.sourceSansPro(
+                          textStyle: TextStyle(
+                            color: AppColors.black.withOpacity(.6),
+                            fontStyle: FontStyle.normal,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 19.0),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Image.asset("assets/png/images/google_button.png"),
                     ),
                   ],
                 ),

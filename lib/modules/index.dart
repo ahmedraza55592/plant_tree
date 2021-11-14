@@ -9,3 +9,6 @@ export './authentication/login.dart';
 export './dashboard/homepage.dart';
 export './dashboard/add_plant.dart';
 export './dashboard/menu.dart';
+
+//Profile
+export './profile/user_setting.dart';
