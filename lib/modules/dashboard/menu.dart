@@ -80,14 +80,6 @@ class Menu extends StatelessWidget {
                     const Divider(
                       thickness: 1.0,
                     ),
-                    TextButtonWidget(
-                      text: "Logout",
-                      onPressed: () =>
-                          Navigator.pushReplacementNamed(context, '/login'),
-                    ),
-                    const Divider(
-                      thickness: 1.0,
-                    ),
                   ],
                 ),
               ),
@@ -102,7 +94,7 @@ class Menu extends StatelessWidget {
                   children: [
                     TextButtonWidget(
                       text: "User Setting",
-                      onPressed: () => Navigator.pushReplacementNamed(
+                      onPressed: () => Navigator.pushNamed(
                           context, '/userProfile'),
                     ),
                     const Divider(
@@ -118,6 +110,14 @@ class Menu extends StatelessWidget {
                     TextButtonWidget(
                       text: "Your Plants Location",
                       onPressed: () {},
+                    ),
+                    const Divider(
+                      thickness: 1.0,
+                    ),
+                    TextButtonWidget(
+                      text: "Logout",
+                      onPressed: () =>
+                          Navigator.pushReplacementNamed(context, '/login'),
                     ),
                     const Divider(
                       thickness: 1.0,

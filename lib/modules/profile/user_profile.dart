@@ -27,23 +27,53 @@ class _UserProfileState extends State<UserProfile> {
               alignment: Alignment.center,
               children: [
                 Container(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0,),
+                    child: IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back, color: AppColors.black, size: 30.0,)),
+                  ),
                   height: height,
                   width: double.infinity,
                   color: AppColors.lightgrey,
                 ),
                 Positioned(
                   top: top,
-                  child: Container(
-                    height: profilePicHeight,
-                    width: 140.0,
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        image: const DecorationImage(
-                          image: AssetImage(
-                              "assets/png/images/profile_picture.png"),
+                  child: Stack(
+                    children: [
+                      Container(
+                        
+                        height: profilePicHeight,
+                        width: 140.0,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).scaffoldBackgroundColor,
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                  "assets/png/images/profile_picture.png"),
+                            ),
+                            shape: BoxShape.circle,
+                            border:
+                                Border.all(width: 4.0, color: AppColors.green)),
+                      ),
+                      Positioned(
+                        right: 0,
+                        child: Container(
+                          height: 40.0,
+                          width: 40.0,
+                          decoration: BoxDecoration(
+                              color: AppColors.white,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                  width: 2.0, color: AppColors.green)),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.edit_rounded,
+                              color: AppColors.green,
+                            ),
+                          ),
                         ),
-                        shape: BoxShape.circle,
-                        border: Border.all(width: 5.0, color: AppColors.green)),
+                      )
+                    ],
                   ),
                 )
               ],
@@ -109,7 +139,8 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
               padding:
                   const EdgeInsets.symmetric(horizontal: 13.0, vertical: 16.0),
               decoration: BoxDecoration(
@@ -156,14 +187,15 @@ class _UserProfileState extends State<UserProfile> {
                           buttonText: "Update Password",
                           onPressed: () {},
                         ),
-                        const SizedBox(height: 100.0,),
+                        const SizedBox(
+                          height: 100.0,
+                        ),
                         ProfileButton(
                           icon: const Icon(Icons.exit_to_app_rounded),
                           buttonText: "Logout",
-                          onPressed: () {},
+                          onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
                         ),
                       ],
-                      
                     ),
                   ),
                 ],
