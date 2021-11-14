@@ -5,9 +5,8 @@ import 'package:plant_tree/styles/index.dart';
 class ButtonWidget extends StatefulWidget {
   final String? buttonText;
   final void Function()? onPressed;
-  final TextStyle? fontFamily;
 
-  const ButtonWidget({Key? key, this.buttonText, this.onPressed, this.fontFamily})
+  const ButtonWidget({Key? key, this.buttonText, this.onPressed,})
       : super(key: key);
 
   @override
