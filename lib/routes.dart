@@ -6,4 +6,5 @@ class MyRoutes {
   static String resetPasswordEmail = '/resetPasswordEmail';
   static String otpscreeen = '/otpScreen';
   static String resetPassword = '/resetPassword';
+  static String userProfile = '/userProfile';
 }

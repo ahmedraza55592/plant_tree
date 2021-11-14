@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.resetPasswordEmail: (context) => const ResetPasswordEmail(),
         MyRoutes.otpscreeen: (context) => const OTPScreen(),
         MyRoutes.resetPassword: (context) => const ResetPassword(),
+        MyRoutes.userProfile: (context) => const UserProfile(),
       },
     );
   }
