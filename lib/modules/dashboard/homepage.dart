@@ -1,7 +1,7 @@
 import 'package:plant_tree/modules/index.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,9 +14,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     AddPlant(),
-    Text('Search Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Profile Page',
+    Library(),
+    Text('Diseases',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
     Menu(),
   ];
@@ -52,14 +51,14 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              "assets/svg/icons/camera_icon.svg",
+              "assets/svg/icons/library_icon.svg",
               height: 20.0,
               width: 20.0,
               color: AppColors.black,
             ),
-            label: "Search",
+            label: "Library",
             activeIcon: SvgPicture.asset(
-              'assets/svg/icons/camera_icon.svg',
+              'assets/svg/icons/library_icon.svg',
               height: 25.0,
               width: 25.0,
               color: AppColors.green,

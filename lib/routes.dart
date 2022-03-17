@@ -7,4 +7,5 @@ class MyRoutes {
   static String otpscreeen = '/otpScreen';
   static String resetPassword = '/resetPassword';
   static String userProfile = '/userProfile';
+  static String libraryDetail = '/libraryDetail';
 }

@@ -46,13 +46,6 @@ class Menu extends StatelessWidget {
                     const Divider(
                       thickness: 1.0,
                     ),
-                    TextButtonWidget(
-                      text: "Billing Policy",
-                      onPressed: () {},
-                    ),
-                    const Divider(
-                      thickness: 1.0,
-                    ),
                   ],
                 ),
               ),

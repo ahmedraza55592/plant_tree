@@ -1,0 +1,88 @@
+﻿{
+	"trees": [
+		{
+			"id": "1",
+			"name": "Neem",
+			"ClimateForGrowth": "It thrives well in hot weather, with temperatures of up to 50° C and cold upto 0° C on altitudes upto 1500 m.",
+			"IdealSoil": "The Neem grows on almost all types of soils including clayey, saline and alkaline soils, with pH upto 8.5, but does well on black cotton soil and deep, well-drained soil with good sub-soil water.",
+			"WaterIntake": "Neem tree needs little water and plenty of sunlight, it cannot survive if the soil is not well drained, they are known to survive in areas where rainfall is as low as 200-250mm",
+			"TimeToMaturity": "A Neem tree grows slowing in the first year and they normally begin to bear fruit between 3 and 5 years and becomes fully productive in 10 years. A mature tree produce 30 – 50 kg. fruit every year.",
+			"LifeSpan": "It is estimated that a Neem tree has a productive life span of 150 – 200 years.",
+			"Image": "https://i.pinimg.com/originals/83/00/bc/8300bc51e01e77b7f526ec96540d8d66.jpg",
+			"season": "All",
+			"temperature": "0C - 50C",
+			"water": "once/day",
+			"humidity": "High"
+		},
+		{
+			"id": "2",
+			"name": "Lignum",
+			"ClimateForGrowth": "It thrives well in hot weather, with temperatures of up to 50° C and cold upto 0° C on altitudes upto 1500 m.",
+			"IdealSoil": "The Neem grows on almost all types of soils including clayey, saline and alkaline soils, with pH upto 8.5, but does well on black cotton soil and deep, well-drained soil with good sub-soil water.",
+			"WaterIntake": "Neem tree needs little water and plenty of sunlight, it cannot survive if the soil is not well drained, they are known to survive in areas where rainfall is as low as 200-250mm",
+			"TimeToMaturity": "A Neem tree grows slowing in the first year and they normally begin to bear fruit between 3 and 5 years and becomes fully productive in 10 years. A mature tree produce 30 – 50 kg. fruit every year.",
+			"LifeSpan": "It is estimated that a Neem tree has a productive life span of 150 – 200 years.",
+			"Image": "https://www.greene.pk/wp-content/uploads/2019/03/584987_1.jpg",
+			"season": "All",
+			"temperature": "0C - 50C",
+			"water": "once/day",
+			"humidity": "High"
+		},
+		{
+			"id": "3",
+			"name": "Pepal",
+			"ClimateForGrowth": "It thrives well in hot weather, with temperatures of up to 50° C and cold upto 0° C on altitudes upto 1500 m.",
+			"IdealSoil": "The Neem grows on almost all types of soils including clayey, saline and alkaline soils, with pH upto 8.5, but does well on black cotton soil and deep, well-drained soil with good sub-soil water.",
+			"WaterIntake": "Neem tree needs little water and plenty of sunlight, it cannot survive if the soil is not well drained, they are known to survive in areas where rainfall is as low as 200-250mm",
+			"TimeToMaturity": "A Neem tree grows slowing in the first year and they normally begin to bear fruit between 3 and 5 years and becomes fully productive in 10 years. A mature tree produce 30 – 50 kg. fruit every year.",
+			"LifeSpan": "It is estimated that a Neem tree has a productive life span of 150 – 200 years.",
+			"Image": "https://t3.ftcdn.net/jpg/00/65/30/62/360_F_65306285_AIirJc6gEhOmDscLrZVPIu5RMKreAwfA.jpg",
+			"season": "All",
+			"temperature": "0C - 30C",
+			"water": "once/day",
+			"humidity": "Low"
+		},
+		{
+			"id":"4",
+			"name": "Babul",
+			"ClimateForGrowth": "It thrives well in hot weather, with temperatures of up to 50° C and cold upto 0° C on altitudes upto 1500 m.",
+			"IdealSoil": "The Neem grows on almost all types of soils including clayey, saline and alkaline soils, with pH upto 8.5, but does well on black cotton soil and deep, well-drained soil with good sub-soil water.",
+			"WaterIntake": "Neem tree needs little water and plenty of sunlight, it cannot survive if the soil is not well drained, they are known to survive in areas where rainfall is as low as 200-250mm",
+			"TimeToMaturity": "A Neem tree grows slowing in the first year and they normally begin to bear fruit between 3 and 5 years and becomes fully productive in 10 years. A mature tree produce 30 – 50 kg. fruit every year.",
+			"LifeSpan": "It is estimated that a Neem tree has a productive life span of 150 – 200 years.",
+			"Image": "https://cdn.pixabay.com/photo/2017/10/20/17/18/babul-2872022_960_720.jpg",
+			"season": "All",
+			"temperature": "0C - 40C",
+			"water": "twice/day",
+			"humidity": "High"
+		},
+		{
+			"id":"5",
+			"name": "Siris",
+			"ClimateForGrowth": "It thrives well in hot weather, with temperatures of up to 50° C and cold upto 0° C on altitudes upto 1500 m.",
+			"IdealSoil": "The Neem grows on almost all types of soils including clayey, saline and alkaline soils, with pH upto 8.5, but does well on black cotton soil and deep, well-drained soil with good sub-soil water.",
+			"WaterIntake": "Neem tree needs little water and plenty of sunlight, it cannot survive if the soil is not well drained, they are known to survive in areas where rainfall is as low as 200-250mm",
+			"TimeToMaturity": "A Neem tree grows slowing in the first year and they normally begin to bear fruit between 3 and 5 years and becomes fully productive in 10 years. A mature tree produce 30 – 50 kg. fruit every year.",
+			"LifeSpan": "It is estimated that a Neem tree has a productive life span of 150 – 200 years.",
+			"Image": "https://www.hindimeaning.com/wp-content/uploads/2016/12/Siris-Tree-Lebbeck-Tree.jpg",
+			"season": "winter",
+			"temperature": "0C - 50C",
+			"water": "once/day",
+			"humidity": "High"
+		},
+		{
+			"id": "6",
+			"name": "Amaltas",
+			"ClimateForGrowth": "It thrives well in hot weather, with temperatures of up to 50° C and cold upto 0° C on altitudes upto 1500 m.",
+			"IdealSoil": "The Neem grows on almost all types of soils including clayey, saline and alkaline soils, with pH upto 8.5, but does well on black cotton soil and deep, well-drained soil with good sub-soil water.",
+			"WaterIntake": "Neem tree needs little water and plenty of sunlight, it cannot survive if the soil is not well drained, they are known to survive in areas where rainfall is as low as 200-250mm",
+			"TimeToMaturity": "A Neem tree grows slowing in the first year and they normally begin to bear fruit between 3 and 5 years and becomes fully productive in 10 years. A mature tree produce 30 – 50 kg. fruit every year.",
+			"LifeSpan": "It is estimated that a Neem tree has a productive life span of 150 – 200 years.",
+			"Image": "https://live.staticflickr.com/3416/3584756190_ff6752ff6c_n.jpg",
+			"season": "All",
+			"temperature": "0C - 50C",
+			"water": "once/day",
+			"humidity": "High"
+		}
+	]
+}
