@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
+import 'package:plant_tree/styles/index.dart';
 import 'package:provider/provider.dart';
 import 'package:plant_tree/modules/index.dart';
 import 'package:flutter/material.dart';
@@ -56,8 +57,10 @@ class MyApp extends StatelessWidget {
 
                 // means connection to future hasnt been made yet
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                  return Scaffold(
+                    body: Center(
+                      child: CircularProgressIndicator(color: AppColors.green,),
+                    ),
                   );
                 }
 

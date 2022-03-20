@@ -1,10 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:plant_tree/modules/authentication/models/user.dart';
+import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
 import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/routes.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
+import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -18,6 +21,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final AuthMethods _authMethods = AuthMethods();
+
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
 

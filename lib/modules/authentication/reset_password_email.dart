@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
 
-class ResetPasswordEmail extends StatelessWidget {
+class ResetPasswordEmail extends StatefulWidget {
   const ResetPasswordEmail({Key? key}) : super(key: key);
 
+  @override
+  State<ResetPasswordEmail> createState() => _ResetPasswordEmailState();
+}
+
+class _ResetPasswordEmailState extends State<ResetPasswordEmail> {
+  final TextEditingController _emailController = TextEditingController();
+  final AuthMethods _authMethods = AuthMethods();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +43,8 @@ class ResetPasswordEmail extends StatelessWidget {
                   Text("Please enter the details to continue",
                       style: TextStyles.body15),
                   SizedBox(height: 150.0.h),
-                  const TextFieldWidget(
+                  TextFieldWidget(
+                    controller: _emailController,
                     hintText: "Email",
                     textInputType: TextInputType.emailAddress,
                   ),
@@ -42,12 +52,11 @@ class ResetPasswordEmail extends StatelessWidget {
                     height: 26.0.h,
                   ),
                   ButtonWidget(
-                    buttonText: "Send Email",
-                    onPressed: () {
-                      debugPrint("Send Email button pressed");
-                      // Navigator.pushNamed(context, '/otpScreen');
-                    },
-                  ),
+                      buttonText: "Send Email",
+                      onPressed: () async {
+                        await _authMethods.resetPassword(context,
+                            email: _emailController.text.trim());
+                      }),
                 ],
               ),
             ),

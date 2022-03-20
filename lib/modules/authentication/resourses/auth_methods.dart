@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:plant_tree/modules/authentication/models/user.dart' as model;
 import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
 import 'package:plant_tree/styles/index.dart';
@@ -11,8 +11,9 @@ class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
+  User get user => _auth.currentUser!;
+
   Stream<User?> get authChanges => _auth.authStateChanges();
-  
 
   Future<bool> signInWithGoogle(BuildContext context) async {
     bool res = false;
@@ -61,8 +62,11 @@ class AuthMethods {
       required String email}) async {
     bool res = false;
     try {
+
       UserCredential cred = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+
+
       if (cred.user != null) {
         model.User user = model.User(
           name: name.trim(),
@@ -141,8 +145,6 @@ class AuthMethods {
         await _firebaseFirestore.collection("users").doc(currentUser.uid).get();
 
     return model.User.fromSnap(snap);
-
-    // return model.User.fromSnap(snap);
   }
 
   Future<Map<String, dynamic>?> getCurrentUser(String? uid) async {
@@ -151,6 +153,28 @@ class AuthMethods {
       return snap.data();
     }
     return null;
+  }
+
+  Future<void> resetPassword(BuildContext context,
+      {required String email}) async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => Center(
+              child: CircularProgressIndicator(
+                color: AppColors.green,
+              ),
+            ));
+    try {
+      await _auth.sendPasswordResetEmail(
+        email: email,
+      );
+      showSnackBar(context, "Password Reset Email has been Sent");
+      Navigator.of(context).popUntil((route) => route.isFirst);
+    } on FirebaseAuthException catch (e) {
+      showSnackBar(context, e.message!);
+      Navigator.of(context).pop();
+    }
   }
 
   Future<void> signOut() async {

@@ -54,16 +54,16 @@ class _UserProfileState extends State<UserProfile> {
                     children: [
                       Container(
                         height: profilePicHeight,
-                        width: 140.0,
+                        width: 130.0,
                         decoration: BoxDecoration(
                             color: Theme.of(context).scaffoldBackgroundColor,
-                            image: user.photoUrl == "" ? const DecorationImage(
-                              image: AssetImage(
-                                  "assets/png/images/profile_picture.png"),
-                            ) : DecorationImage(image: NetworkImage(user.photoUrl!, scale: 0.7)),
+                            image:DecorationImage(
+                              image: user.photoUrl == "" ? const NetworkImage(
+                                  'https://i.stack.imgur.com/l60Hf.png', scale: 0.1) : NetworkImage(user.photoUrl!, scale: 0.8),
+                            ),
                             shape: BoxShape.circle,
                             border:
-                                Border.all(width: 4.0, color: AppColors.green)),
+                                Border.all(width: 2.0, color: AppColors.green)),
                       ),
                       Positioned(
                         right: 0,
@@ -74,7 +74,7 @@ class _UserProfileState extends State<UserProfile> {
                               color: AppColors.white,
                               shape: BoxShape.circle,
                               border: Border.all(
-                                  width: 2.0, color: AppColors.green)),
+                                  width: 1.0, color: AppColors.green)),
                           child: InkWell(
                             onTap: () {},
                             child: Icon(
