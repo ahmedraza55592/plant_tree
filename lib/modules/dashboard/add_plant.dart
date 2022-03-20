@@ -1,10 +1,6 @@
-import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
-import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:flutter/material.dart';
-// import 'package:plant_tree/styles/text_style.dart';
 import 'package:plant_tree/widgets/index.dart';
-import 'package:provider/provider.dart';
 
 class AddPlant extends StatelessWidget {
   const AddPlant({Key? key}) : super(key: key);

@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
 import 'package:plant_tree/modules/index.dart';
 import 'package:plant_tree/styles/index.dart';
@@ -68,7 +69,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Container(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: EdgeInsets.only(left: 8.0.w),
             alignment: Alignment.center,
             height: 60.0,
             width: 60.0,

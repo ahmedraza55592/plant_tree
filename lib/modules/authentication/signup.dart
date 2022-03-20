@@ -19,6 +19,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordController = TextEditingController();
   final AuthMethods _authMethods = AuthMethods();
   bool _isLoading = false;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -53,77 +54,85 @@ class _SignUpState extends State<SignUp> {
                 child: CircularProgressIndicator(),
               )
             : SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24.0.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(height: 100.0.h),
-                          Text("Register", style: TextStyles.primaryHeading),
-                          SizedBox(height: 16.0.h),
-                          Text("Please enter the details to continue",
-                              style: TextStyles.body15),
-                          SizedBox(height: 150.0.h),
-                          TextFieldWidget(
-                            controller: nameController,
-                            hintText: "Name",
-                            textInputType: TextInputType.name,
-                          ),
-                          SizedBox(height: 40.0.h),
-                          TextFieldWidget(
-                            controller: emailController,
-                            hintText: "Email",
-                            textInputType: TextInputType.emailAddress,
-                          ),
-                          SizedBox(height: 40.0.h),
-                          TextFieldWidget(
-                            controller: passwordController,
-                            obscureText: true,
-                            hintText: "Password",
-                            textInputType: TextInputType.visiblePassword,
-                          ),
-                          SizedBox(height: 40.0.h),
-                          TextFieldWidget(
-                            validator: (value) {
-                              if (value != passwordController.text) {
-                                return "Password must be same as above";
-                              }
-                              return null;
-                            },
-                            obscureText: true,
-                            hintText: "Confirm Password",
-                            textInputType: TextInputType.visiblePassword,
-                          ),
-                          SizedBox(height: 26.0.h),
-                          ButtonWidget(
-                            buttonText: "Register",
-                            onPressed: signUpUser,
-                          ),
-                          SizedBox(height: 25.0.h),
-                          Container(
-                            alignment: Alignment.center,
-                            child: RichText(
-                              text: TextSpan(
-                                  text: "Already have an account? ",
-                                  style: TextStyles.body13,
-                                  children: [
-                                    TextSpan(
-                                        text: "Login",
-                                        style: TextStyles.body13,
-                                        recognizer: TapGestureRecognizer()
-                                          ..onTap = () =>
-                                              Navigator.pushReplacementNamed(
-                                                  context, MyRoutes.loginPage)),
-                                  ]),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0.w),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(height: 100.0.h),
+                            Text("Register", style: TextStyles.primaryHeading),
+                            SizedBox(height: 16.0.h),
+                            Text("Please enter the details to continue",
+                                style: TextStyles.body15),
+                            SizedBox(height: 150.0.h),
+                            TextFieldWidget(
+                              controller: nameController,
+                              hintText: "Name",
+                              textInputType: TextInputType.name,
                             ),
-                          ),
-                        ],
+                            SizedBox(height: 40.0.h),
+                            TextFieldWidget(
+                              controller: emailController,
+                              hintText: "Email",
+                              textInputType: TextInputType.emailAddress,
+                            ),
+                            SizedBox(height: 40.0.h),
+                            TextFieldWidget(
+                              controller: passwordController,
+                              obscureText: true,
+                              hintText: "Password",
+                              textInputType: TextInputType.visiblePassword,
+                            ),
+                            SizedBox(height: 40.0.h),
+                            TextFieldWidget(
+                              validator: (value) {
+                                if (value != passwordController.text) {
+                                  return "Password must be same as above";
+                                }
+                                return null;
+                              },
+                              obscureText: true,
+                              hintText: "Confirm Password",
+                              textInputType: TextInputType.visiblePassword,
+                            ),
+                            SizedBox(height: 26.0.h),
+                            ButtonWidget(
+                              buttonText: "Register",
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  signUpUser();
+                                }
+                              },
+                            ),
+                            SizedBox(height: 25.0.h),
+                            Container(
+                              alignment: Alignment.center,
+                              child: RichText(
+                                text: TextSpan(
+                                    text: "Already have an account? ",
+                                    style: TextStyles.body13,
+                                    children: [
+                                      TextSpan(
+                                          text: "Login",
+                                          style: TextStyles.body13,
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () =>
+                                                Navigator.pushReplacementNamed(
+                                                    context,
+                                                    MyRoutes.loginPage)),
+                                    ]),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
       ),
