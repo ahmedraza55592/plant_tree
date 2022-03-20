@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_tree/styles/index.dart';
+import 'package:plant_tree/widgets/google_button.dart';
 import 'package:plant_tree/widgets/index.dart';
 
 class Login extends StatefulWidget {
@@ -33,68 +33,56 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 105),
+                    const SizedBox(height: 100),
                     Text("Login", style: TextStyles.primaryHeading),
-                    const SizedBox(height: 50.0),
-                    Text("Email", style: TextStyles.body),
+                    const SizedBox(height: 8.0),
+                    Text("Please enter the details to continue",
+                        style: TextStyles.body15),
+                    const SizedBox(height: 180.0),
                     TextFieldWidget(
                       controller: emailController,
-                      hintText: "Enter your Email",
+                      hintText: "Email",
                       textInputType: TextInputType.emailAddress,
                     ),
-                    const SizedBox(height: 28.0),
-                    Text("Password", style: TextStyles.body),
+                    const SizedBox(height: 10.0),
                     TextFieldWidget(
                       controller: passwordController,
                       obscureText: true,
                       hintText: "Password",
                       textInputType: TextInputType.visiblePassword,
                     ),
-                    const SizedBox(height: 15.0),
+                    const SizedBox(height: 30.0),
                     InkWell(
                       onTap: () =>
                           Navigator.pushNamed(context, '/resetPasswordEmail'),
                       child: Container(
-                        alignment: Alignment.centerRight,
+                        alignment: Alignment.center,
                         child: Text(
                           "Forgot Password? ",
-                          style: GoogleFonts.sourceSansPro(
-                            textStyle: TextStyle(
-                              color: AppColors.black,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 16.0,
-                            ),
-                          ),
+                          style: TextStyles.body13,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 28.0),
+                    const SizedBox(height: 26.0),
                     ButtonWidget(
                       buttonText: "Login",
                       onPressed: () {
                         Navigator.pushReplacementNamed(context, '/homepage');
                       },
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 14.0, left: 55.0, bottom: 14.0),
+                    const SizedBox(height: 45.0),
+                    Container(
+                      alignment: Alignment.center,
                       child: RichText(
                         text: TextSpan(
                             text: "Don't Have an Account? ",
-                            style: GoogleFonts.roboto(
-                              textStyle: TextStyle(
-                                  color: AppColors.black, fontSize: 16.0),
-                            ),
+                            style: TextStyles.body13,
                             children: [
                               TextSpan(
                                   text: "Register",
-                                  style: GoogleFonts.roboto(
-                                    textStyle: TextStyle(
-                                        color: AppColors.black,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  style: TextStyles.body13,
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () =>
                                         Navigator.pushReplacementNamed(
@@ -102,25 +90,22 @@ class _LoginState extends State<Login> {
                             ]),
                       ),
                     ),
-                    const SizedBox(height: 10.0),
+                    const SizedBox(height: 24.0),
                     Container(
                       alignment: Alignment.center,
                       child: Text(
-                        "or",
-                        style: GoogleFonts.sourceSansPro(
-                          textStyle: TextStyle(
-                            color: AppColors.black.withOpacity(.6),
-                            fontStyle: FontStyle.normal,
-                            fontSize: 18.0,
-                          ),
-                        ),
+                        "OR",
+                        style: TextStyles.body13,
                       ),
                     ),
-                    const SizedBox(height: 19.0),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Image.asset("assets/png/images/google_button.png"),
+                    const SizedBox(height: 24.0),
+                    GoogleButton(
+                      buttonText: "Continue With Google",
+                      onPressed: () {
+                        debugPrint("Google button pressed");
+                      },
                     ),
+                    const SizedBox(height: 140.0),
                   ],
                 ),
               ),

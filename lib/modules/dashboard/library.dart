@@ -36,10 +36,17 @@ class _LibraryState extends State<Library> {
       appBar: AppBar(
         title: Text(
           "Library",
-          style: TextStyles.primaryHeading,
+          style: TextStyles.body22,
         ),
-        backgroundColor: AppColors.white,
-        elevation: 1.0,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                end: Alignment.centerLeft,
+                begin: Alignment.centerRight,
+                colors: AppColors.appBarColor),
+          ),
+        ),
+        elevation: 0.0,
       ),
       body: Trees.items != null
           ? ListView.builder(
@@ -60,15 +67,15 @@ class _LibraryState extends State<Library> {
                       Container(
                         margin: EdgeInsets.only(
                             top: 30.0,
-                            left: 23.0,
-                            right: 23.0,
+                            left: 15.0,
+                            right: 15.0,
                             bottom: index == Trees.items!.length - 1.0
-                                ? 23.0
+                                ? 30.0
                                 : 0.0),
                         height: 300.0,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30.0),
+                          borderRadius: BorderRadius.circular(15.0),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(Trees.items![index].image!),

@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
 
@@ -35,25 +34,26 @@ class _SignUpState extends State<SignUp> {
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 105),
+                    const SizedBox(height: 100),
                     Text("Register", style: TextStyles.primaryHeading),
-                    const SizedBox(height: 50.0),
-                    Text("Name", style: TextStyles.body),
+                    const SizedBox(height: 8.0),
+                    Text("Please enter the details to continue",
+                        style: TextStyles.body15),
+                    const SizedBox(height: 180.0),
                     TextFieldWidget(
                       controller: nameController,
-                      hintText: "Enter your name",
+                      hintText: "Name",
                       textInputType: TextInputType.name,
                     ),
                     const SizedBox(height: 28.0),
-                    Text("Email", style: TextStyles.body),
                     TextFieldWidget(
                       controller: emailController,
-                      hintText: "Enter your Email",
+                      hintText: "Email",
                       textInputType: TextInputType.emailAddress,
                     ),
                     const SizedBox(height: 28.0),
-                    Text("Password", style: TextStyles.body),
                     TextFieldWidget(
                       controller: passwordController,
                       obscureText: true,
@@ -61,7 +61,6 @@ class _SignUpState extends State<SignUp> {
                       textInputType: TextInputType.visiblePassword,
                     ),
                     const SizedBox(height: 28.0),
-                    Text("Confirm Password", style: TextStyles.body),
                     const TextFieldWidget(
                       obscureText: true,
                       hintText: "Confirm Password",
@@ -74,25 +73,17 @@ class _SignUpState extends State<SignUp> {
                         Navigator.pushReplacementNamed(context, '/homepage');
                       },
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 14.0, left: 60.0, bottom: 14.0),
+                    const SizedBox(height: 20.0),
+                    Container(
+                      alignment: Alignment.center,
                       child: RichText(
                         text: TextSpan(
-                            text: "Already Have an Account? ",
-                            style: GoogleFonts.roboto(
-                              textStyle: TextStyle(
-                                  color: AppColors.black, fontSize: 16.0),
-                            ),
+                            text: "Already have an account? ",
+                            style: TextStyles.body13,
                             children: [
                               TextSpan(
                                   text: "Login",
-                                  style: GoogleFonts.roboto(
-                                    textStyle: TextStyle(
-                                        color: AppColors.black,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  style: TextStyles.body13,
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () =>
                                         Navigator.pushReplacementNamed(
@@ -100,6 +91,7 @@ class _SignUpState extends State<SignUp> {
                             ]),
                       ),
                     ),
+                    const SizedBox(height: 140.0),
                   ],
                 ),
               ),

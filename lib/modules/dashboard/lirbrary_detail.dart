@@ -16,13 +16,21 @@ class LibraryDetail extends StatelessWidget {
         ),
         title: Text(
           items!.name!,
-          style: TextStyles.primaryHeading,
+          style: TextStyles.body22,
         ),
-        backgroundColor: AppColors.white,
-        elevation: 1.0,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                end: Alignment.centerLeft,
+                begin: Alignment.centerRight,
+                colors: AppColors.appBarColor),
+          ),
+        ),
+        elevation: 0.0,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 25.0, left: 25.0, right: 25.0, bottom: 0.0),
+        padding: const EdgeInsets.only(
+            top: 25.0, left: 25.0, right: 25.0, bottom: 0.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -30,7 +38,7 @@ class LibraryDetail extends StatelessWidget {
                 height: 200,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(5.0),
                     image: DecorationImage(
                         image: NetworkImage(items!.image!), fit: BoxFit.cover)),
               ),
@@ -41,118 +49,158 @@ class LibraryDetail extends StatelessWidget {
                   color: const Color(0xffF0F0F0),
                   borderRadius: BorderRadius.circular(6.0),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(items!.name!),
-                    ),
-                    const SizedBox(height: 40.0),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30.0, right: 100.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [const Text("Season"), Text(items!.season!)],
-                          ),
-                        ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 30.0, top: 25.0),
+                        child: Text(
+                          items!.name!,
+                          style: TextStyles.body22,
+                        ),
                       ),
-                    ),
-                    const Divider(
-                      thickness: 1.0,
-                      indent: 20.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30.0, right: 100.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [const Text("Temperature"), Text(items!.temperature!)],
-                          ),
-                        ],
+                      const SizedBox(height: 40.0),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 30.0, right: 100.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text("Season"),
+                                Text(items!.season!)
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const Divider(
-                      thickness: 1.0,
-                      indent: 20.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30.0, right: 100.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [const Text("Water"), Text(items!.water!)],
-                          ),
-                        ],
+                      const Divider(
+                        thickness: 1.0,
+                        indent: 20.0,
                       ),
-                    ),
-                    const Divider(
-                      thickness: 1.0,
-                      indent: 20.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30.0, right: 100.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [const Text("Humidity"), Text(items!.humidity!)],
-                          ),
-                        ],
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 30.0, right: 100.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text("Temperature"),
+                                Text(items!.temperature!)
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const Divider(
-                      thickness: 1.0,
-                      indent: 20.0,
-                    ),
-                    const SizedBox(height: 45.0),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 40.0,
-                      width: double.infinity,
-                      child: const Text(
-                        "Plant Care Requirements",
+                      const Divider(
+                        thickness: 1.0,
+                        indent: 20.0,
                       ),
-                      color: const Color(0xffB7E797).withOpacity(.3),
-                    ),
-                    const SizedBox(height: 45.0),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0, right: 15.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("Climate: "),
-                          const SizedBox(height: 10.0),
-                          Text(items!.climateForGrowth!),
-                          const SizedBox(height: 10.0),
-                          const Text("Ideal Soil: "),
-                          const SizedBox(height: 10.0),
-                          Text(items!.idealSoil!),
-                          const SizedBox(height: 10.0),
-                          const Text("Water In Take: "),
-                          const SizedBox(height: 10.0),
-                          Text(items!.waterInTake!),
-                          const SizedBox(height: 10.0),
-                          const Text("Time To Maturity: "),
-                          const SizedBox(height: 10.0),
-                          Text(items!.timeToMaturity!),
-                          const SizedBox(height: 10.0),
-                          const Text("LifeSpan: "),
-                          const SizedBox(height: 10.0),
-                          Text(items!.lifeSpan!),
-                          const SizedBox(height: 50.0),
-
-                        ],
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 30.0, right: 100.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text("Water"),
+                                Text(items!.water!)
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    )
-                  ],
+                      const Divider(
+                        thickness: 1.0,
+                        indent: 20.0,
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 30.0, right: 100.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text("Humidity"),
+                                Text(items!.humidity!)
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1.0,
+                        indent: 20.0,
+                      ),
+                      const SizedBox(height: 45.0),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 40.0,
+                        width: double.infinity,
+                        child:  Text(
+                          "Plant Care Requirements",
+                          style: TextStyles.body22,
+                        ),
+                        color: const Color(0xffB7E797).withOpacity(.3),
+                      ),
+                      const SizedBox(height: 45.0),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, right: 15.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Climate:",
+                              style: TextStyles.body22,
+                            ),
+                            const SizedBox(height: 10.0),
+                            Text(items!.climateForGrowth!),
+                            const SizedBox(height: 10.0),
+                            Text(
+                              "Ideal Soil:",
+                              style: TextStyles.body22,
+                            ),
+                            const SizedBox(height: 10.0),
+                            Text(items!.idealSoil!),
+                            const SizedBox(height: 10.0),
+                            Text(
+                              "Water In Take:",
+                              style: TextStyles.body22,
+                            ),
+                            const SizedBox(height: 10.0),
+                            Text(items!.waterInTake!),
+                            const SizedBox(height: 10.0),
+                            Text(
+                              "Time To Maturity:",
+                              style: TextStyles.body22,
+                            ),
+                            const SizedBox(height: 10.0),
+                            Text(items!.timeToMaturity!),
+                            const SizedBox(height: 10.0),
+                            Text(
+                              "LifeSpan:",
+                              style: TextStyles.body22,
+                            ),
+                            const SizedBox(height: 10.0),
+                            Text(items!.lifeSpan!),
+                            const SizedBox(height: 50.0),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(height: 25.0,)
+              const SizedBox(
+                height: 25.0,
+              )
             ],
           ),
         ),

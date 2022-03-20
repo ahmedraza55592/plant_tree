@@ -15,10 +15,10 @@ class TextButtonWidget extends StatelessWidget {
       onTap: onPressed,
       child: Text(
         text!,
-        style: GoogleFonts.roboto(
+        style: GoogleFonts.openSans(
           textStyle: TextStyle(
-            color: AppColors.black,
-            fontSize: 21.0,
+            color: AppColors.black.withOpacity(.5),
+            fontSize: 15.0,
             fontStyle: FontStyle.normal,
           ),
         ),

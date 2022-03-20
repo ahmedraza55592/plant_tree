@@ -99,7 +99,7 @@ class _UserProfileState extends State<UserProfile> {
                 children: [
                   Text(
                     "Profile",
-                    style: TextStyles.body23,
+                    style: TextStyles.body22,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
@@ -159,7 +159,7 @@ class _UserProfileState extends State<UserProfile> {
                 children: [
                   Text(
                     "Security",
-                    style: TextStyles.body23,
+                    style: TextStyles.body22,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),

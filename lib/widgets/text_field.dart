@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_tree/styles/colors.dart';
+import 'package:plant_tree/styles/text_style.dart';
 
 class TextFieldWidget extends StatefulWidget {
   final TextInputType? textInputType;
@@ -29,14 +30,16 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       cursorColor: AppColors.black,
       decoration: InputDecoration(
         hintText: widget.hintText,
+        hintStyle: TextStyles.body13,
         enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: AppColors.black)),
+            borderSide: BorderSide(color: AppColors.black.withOpacity(.5))),
         focusedBorder: UnderlineInputBorder(
+            
             borderSide: BorderSide(color: AppColors.black)),
         border: UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.black)),
         errorBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: AppColors.black)),
+            borderSide: BorderSide(color: AppColors.errorColor)),
       ),
     );
   }

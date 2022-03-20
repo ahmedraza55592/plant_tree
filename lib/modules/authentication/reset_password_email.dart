@@ -3,7 +3,7 @@ import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
 
 class ResetPasswordEmail extends StatelessWidget {
-  const ResetPasswordEmail({ Key? key }) : super(key: key);
+  const ResetPasswordEmail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,7 @@ class ResetPasswordEmail extends StatelessWidget {
         backgroundColor: AppColors.white,
         elevation: 0.0,
       ),
+      backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -30,19 +31,21 @@ class ResetPasswordEmail extends StatelessWidget {
                     "Reset Password",
                     style: TextStyles.primaryHeading,
                   ),
-                  const SizedBox(height: 85.0),
-                  Text("Email", style: TextStyles.body),
+                  Text("Please enter the details to continue",
+                      style: TextStyles.body15),
+                  const SizedBox(height: 75.0),
                   const TextFieldWidget(
-                    hintText: "Enter your email",              
-                    textInputType: TextInputType.emailAddress,      
+                    hintText: "Email",
+                    textInputType: TextInputType.emailAddress,
                   ),
                   const SizedBox(
-                    height: 35.0,
+                    height: 40.0,
                   ),
                   ButtonWidget(
                     buttonText: "Send Email",
                     onPressed: () {
-                      Navigator.pushNamed(context, '/otpScreen');
+                      debugPrint("Send Email button pressed");
+                      // Navigator.pushNamed(context, '/otpScreen');
                     },
                   ),
                 ],
