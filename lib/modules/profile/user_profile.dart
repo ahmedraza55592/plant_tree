@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:plant_tree/styles/colors.dart';
+import 'package:plant_tree/modules/authentication/models/user.dart';
+import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
+// import 'package:plant_tree/styles/colors.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
+import 'package:provider/provider.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);
@@ -16,6 +19,7 @@ class _UserProfileState extends State<UserProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final User user = Provider.of<UserProvider>(context).getUser;
     final top = height - profilePicHeight / 2;
     return Scaffold(
       body: SingleChildScrollView(
@@ -29,8 +33,16 @@ class _UserProfileState extends State<UserProfile> {
                 Container(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 20.0,),
-                    child: IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back, color: AppColors.black, size: 30.0,)),
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                    ),
+                    child: IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: AppColors.black,
+                          size: 30.0,
+                        )),
                   ),
                   height: height,
                   width: double.infinity,
@@ -41,15 +53,14 @@ class _UserProfileState extends State<UserProfile> {
                   child: Stack(
                     children: [
                       Container(
-                        
                         height: profilePicHeight,
                         width: 140.0,
                         decoration: BoxDecoration(
                             color: Theme.of(context).scaffoldBackgroundColor,
-                            image: const DecorationImage(
+                            image: user.photoUrl == "" ? const DecorationImage(
                               image: AssetImage(
                                   "assets/png/images/profile_picture.png"),
-                            ),
+                            ) : DecorationImage(image: NetworkImage(user.photoUrl!, scale: 0.7)),
                             shape: BoxShape.circle,
                             border:
                                 Border.all(width: 4.0, color: AppColors.green)),
@@ -108,7 +119,7 @@ class _UserProfileState extends State<UserProfile> {
                       children: [
                         const SizedBox(height: 56.0),
                         Text(
-                          "Full name:",
+                          user.name!,
                           style: TextStyles.body16,
                         ),
                         const Divider(
@@ -121,7 +132,7 @@ class _UserProfileState extends State<UserProfile> {
                         ),
                         const SizedBox(height: 20.0),
                         Text(
-                          "Email:",
+                          user.email!,
                           style: TextStyles.body16,
                         ),
                         const Divider(
@@ -193,7 +204,8 @@ class _UserProfileState extends State<UserProfile> {
                         ProfileButton(
                           icon: const Icon(Icons.exit_to_app_rounded),
                           buttonText: "Logout",
-                          onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
+                          onPressed: () =>
+                              Navigator.pushReplacementNamed(context, '/login'),
                         ),
                       ],
                     ),

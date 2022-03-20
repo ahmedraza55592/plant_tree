@@ -1,12 +1,18 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_tree/styles/colors.dart';
+
+
+void showSnackBar(BuildContext context, String content) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(content)));
+}
 
 abstract class TextStyles {
   static TextStyle get body => GoogleFonts.roboto(
         textStyle: TextStyle(
           color: AppColors.black,
-          fontSize: 14.0,
+          fontSize: 14.0.sp,
           fontStyle: FontStyle.normal,
         ),
       );
@@ -15,7 +21,7 @@ abstract class TextStyles {
         textStyle: TextStyle(
           fontWeight: FontWeight.bold,
           color: AppColors.black,
-          fontSize: 22.0,
+          fontSize: 22.0.sp,
           fontStyle: FontStyle.normal,
           letterSpacing: 0.1,
         ),
@@ -25,7 +31,7 @@ abstract class TextStyles {
         textStyle: TextStyle(
           fontWeight: FontWeight.bold,
           color: AppColors.black,
-          fontSize: 19.0,
+          fontSize: 19.0.sp,
           fontStyle: FontStyle.normal,
           letterSpacing: 0.1,
         ),
@@ -33,7 +39,7 @@ abstract class TextStyles {
   static TextStyle get body16 => GoogleFonts.roboto(
         textStyle: TextStyle(
           color: AppColors.black,
-          fontSize: 16.0,
+          fontSize: 16.0.sp,
           fontStyle: FontStyle.normal,
           fontWeight: FontWeight.normal,
         ),
@@ -43,7 +49,7 @@ abstract class TextStyles {
         textStyle: TextStyle(
           fontWeight: FontWeight.bold,
           color: AppColors.black,
-          fontSize: 30.0,
+          fontSize: 30.0.sp,
           fontStyle: FontStyle.normal,
           letterSpacing: 0.1,
         ),
@@ -53,7 +59,7 @@ abstract class TextStyles {
         textStyle: TextStyle(
           fontWeight: FontWeight.w400,
           color: AppColors.black.withOpacity(.5),
-          fontSize: 15.0,
+          fontSize: 15.0.sp,
           fontStyle: FontStyle.normal,
           letterSpacing: 0.1,
         ),
@@ -63,7 +69,7 @@ abstract class TextStyles {
         textStyle: TextStyle(
           fontWeight: FontWeight.w400,
           color: AppColors.black.withOpacity(.5),
-          fontSize: 13.0,
+          fontSize: 13.0.sp,
           fontStyle: FontStyle.normal,
           letterSpacing: 0.1,
         ),

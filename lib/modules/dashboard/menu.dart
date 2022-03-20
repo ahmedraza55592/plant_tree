@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
+import 'package:plant_tree/routes.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
 
 class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +77,9 @@ class Menu extends StatelessWidget {
               const Divider(
                 thickness: 1.0,
               ),
-              const SizedBox(height: 25.0,),
-
+              const SizedBox(
+                height: 25.0,
+              ),
               Text(
                 "Profile",
                 style: TextStyles.body19,
@@ -105,10 +109,11 @@ class Menu extends StatelessWidget {
                 thickness: 1.0,
               ),
               TextButtonWidget(
-                text: "Logout",
-                onPressed: () =>
-                    Navigator.pushReplacementNamed(context, '/login'),
-              ),
+                  text: "Logout",
+                  onPressed: () {
+                    AuthMethods().signOut();
+                    Navigator.pushReplacementNamed(context, MyRoutes.loginPage);
+                  }),
               const Divider(
                 thickness: 1.0,
               ),

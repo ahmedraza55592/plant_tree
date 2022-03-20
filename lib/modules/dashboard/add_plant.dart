@@ -1,13 +1,18 @@
+import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
+import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:flutter/material.dart';
-import 'package:plant_tree/styles/text_style.dart';
+// import 'package:plant_tree/styles/text_style.dart';
 import 'package:plant_tree/widgets/index.dart';
+import 'package:provider/provider.dart';
 
 class AddPlant extends StatelessWidget {
   const AddPlant({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // final userinfo = Provider.of<UserProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -55,8 +60,7 @@ class AddPlant extends StatelessWidget {
           // ),
           // const SizedBox(height: 42.0),
           Container(
-            margin:
-                const EdgeInsets.all(23.0),
+            margin: const EdgeInsets.all(23.0),
             padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 21.0),
             decoration: BoxDecoration(
@@ -70,7 +74,9 @@ class AddPlant extends StatelessWidget {
                   "0 Plant",
                   style: TextStyles.body15,
                 ),
-                const SizedBox(height: 25.0,),
+                const SizedBox(
+                  height: 25.0,
+                ),
                 ButtonWidget(
                   isIcon: true,
                   buttonText: "My Plants",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
 
@@ -20,26 +21,25 @@ class ResetPasswordEmail extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: EdgeInsets.symmetric(horizontal: 24.0.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 35.0,
-                  ),
+                  SizedBox(height: 100.0.h),
                   Text(
                     "Reset Password",
                     style: TextStyles.primaryHeading,
                   ),
+                  SizedBox(height: 16.0.h),
                   Text("Please enter the details to continue",
                       style: TextStyles.body15),
-                  const SizedBox(height: 75.0),
+                  SizedBox(height: 150.0.h),
                   const TextFieldWidget(
                     hintText: "Email",
                     textInputType: TextInputType.emailAddress,
                   ),
-                  const SizedBox(
-                    height: 40.0,
+                  SizedBox(
+                    height: 26.0.h,
                   ),
                   ButtonWidget(
                     buttonText: "Send Email",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_tree/styles/index.dart';
@@ -24,22 +25,23 @@ class _GoogleButtonState extends State<GoogleButton> {
       onTap: widget.onPressed,
       child: Container(
         alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        margin: const EdgeInsets.symmetric(horizontal: 30.0),
+        padding: EdgeInsets.symmetric(vertical: 15.0.h),
+        margin: EdgeInsets.symmetric(horizontal: 42.0.w),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset("assets/svg/icons/google_button.svg"),
-            const SizedBox(width: 10.0),
+            SizedBox(width: 12.46.w),
             Text(widget.buttonText!,
                 style: GoogleFonts.openSans(
                     textStyle: const TextStyle(),
-                    fontSize: 18.0,
+                    fontSize: 18.0.sp,
                     color: AppColors.black)),
           ],
         ),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(5.0.r),
             color: AppColors.googleButtonColor),
       ),
     );

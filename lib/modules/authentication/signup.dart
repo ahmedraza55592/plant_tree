@@ -1,5 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
+import 'package:plant_tree/routes.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
 
@@ -14,6 +17,8 @@ class _SignUpState extends State<SignUp> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final AuthMethods _authMethods = AuthMethods();
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -23,81 +28,104 @@ class _SignUpState extends State<SignUp> {
     super.dispose();
   }
 
+  void signUpUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    bool res = await _authMethods.signUp(context,
+        email: emailController.text,
+        name: nameController.text,
+        password: passwordController.text);
+    setState(() {
+      _isLoading = false;
+    });
+    if (res) {
+      Navigator.pushReplacementNamed(context, MyRoutes.homePage);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        body: _isLoading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 100),
-                    Text("Register", style: TextStyles.primaryHeading),
-                    const SizedBox(height: 8.0),
-                    Text("Please enter the details to continue",
-                        style: TextStyles.body15),
-                    const SizedBox(height: 180.0),
-                    TextFieldWidget(
-                      controller: nameController,
-                      hintText: "Name",
-                      textInputType: TextInputType.name,
-                    ),
-                    const SizedBox(height: 28.0),
-                    TextFieldWidget(
-                      controller: emailController,
-                      hintText: "Email",
-                      textInputType: TextInputType.emailAddress,
-                    ),
-                    const SizedBox(height: 28.0),
-                    TextFieldWidget(
-                      controller: passwordController,
-                      obscureText: true,
-                      hintText: "Password",
-                      textInputType: TextInputType.visiblePassword,
-                    ),
-                    const SizedBox(height: 28.0),
-                    const TextFieldWidget(
-                      obscureText: true,
-                      hintText: "Confirm Password",
-                      textInputType: TextInputType.visiblePassword,
-                    ),
-                    const SizedBox(height: 28.0),
-                    ButtonWidget(
-                      buttonText: "Register",
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/homepage');
-                      },
-                    ),
-                    const SizedBox(height: 20.0),
-                    Container(
-                      alignment: Alignment.center,
-                      child: RichText(
-                        text: TextSpan(
-                            text: "Already have an account? ",
-                            style: TextStyles.body13,
-                            children: [
-                              TextSpan(
-                                  text: "Login",
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24.0.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 100.0.h),
+                          Text("Register", style: TextStyles.primaryHeading),
+                          SizedBox(height: 16.0.h),
+                          Text("Please enter the details to continue",
+                              style: TextStyles.body15),
+                          SizedBox(height: 150.0.h),
+                          TextFieldWidget(
+                            controller: nameController,
+                            hintText: "Name",
+                            textInputType: TextInputType.name,
+                          ),
+                          SizedBox(height: 40.0.h),
+                          TextFieldWidget(
+                            controller: emailController,
+                            hintText: "Email",
+                            textInputType: TextInputType.emailAddress,
+                          ),
+                          SizedBox(height: 40.0.h),
+                          TextFieldWidget(
+                            controller: passwordController,
+                            obscureText: true,
+                            hintText: "Password",
+                            textInputType: TextInputType.visiblePassword,
+                          ),
+                          SizedBox(height: 40.0.h),
+                          TextFieldWidget(
+                            validator: (value) {
+                              if (value != passwordController.text) {
+                                return "Password must be same as above";
+                              }
+                              return null;
+                            },
+                            obscureText: true,
+                            hintText: "Confirm Password",
+                            textInputType: TextInputType.visiblePassword,
+                          ),
+                          SizedBox(height: 26.0.h),
+                          ButtonWidget(
+                            buttonText: "Register",
+                            onPressed: signUpUser,
+                          ),
+                          SizedBox(height: 25.0.h),
+                          Container(
+                            alignment: Alignment.center,
+                            child: RichText(
+                              text: TextSpan(
+                                  text: "Already have an account? ",
                                   style: TextStyles.body13,
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () =>
-                                        Navigator.pushReplacementNamed(
-                                            context, '/login')),
-                            ]),
+                                  children: [
+                                    TextSpan(
+                                        text: "Login",
+                                        style: TextStyles.body13,
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () =>
+                                              Navigator.pushReplacementNamed(
+                                                  context, MyRoutes.loginPage)),
+                                  ]),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 140.0),
                   ],
                 ),
               ),
-            ],
-          ),
-        ),
       ),
     );
   }

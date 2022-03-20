@@ -7,12 +7,14 @@ class TextFieldWidget extends StatefulWidget {
   final TextEditingController? controller;
   final bool obscureText;
   final String? hintText;
+  final String? Function(String?)? validator;
 
   const TextFieldWidget(
       {Key? key,
       this.obscureText=false,
       this.textInputType,
       this.controller,
+      this.validator,
       this.hintText})
       : super(key: key);
 
@@ -24,6 +26,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: widget.validator,
       keyboardType: widget.textInputType,
       controller: widget.controller,
       obscureText: widget.obscureText,

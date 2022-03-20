@@ -1,8 +1,10 @@
+import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
 import 'package:plant_tree/modules/index.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_tree/widgets/custom_bottom_navigation_bar.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -28,6 +30,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void initState() {
+    addUserData();
+    super.initState();
+  }
+
+  addUserData() async {
+    final _userProvider = Provider.of<UserProvider>(context, listen: false);
+    await _userProvider.refreshUser();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -41,10 +54,14 @@ class _HomePageState extends State<HomePage> {
         notchedShape: const CircularNotchedRectangle(),
         onTabSelected: _onItemTapped,
         items: [
-          FABBottomAppBarItem(iconName: "assets/svg/icons/plant_icon.svg", text: 'Add Plant'),
-          FABBottomAppBarItem(iconName: "assets/svg/icons/library_icon.svg", text: 'Library'),
-          FABBottomAppBarItem(iconName: "assets/svg/icons/disease_icon.svg", text: 'Disease'),
-          FABBottomAppBarItem(iconName: "assets/svg/icons/menu_icon.svg", text: 'Menu'),
+          FABBottomAppBarItem(
+              iconName: "assets/svg/icons/plant_icon.svg", text: 'Add Plant'),
+          FABBottomAppBarItem(
+              iconName: "assets/svg/icons/library_icon.svg", text: 'Library'),
+          FABBottomAppBarItem(
+              iconName: "assets/svg/icons/disease_icon.svg", text: 'Disease'),
+          FABBottomAppBarItem(
+              iconName: "assets/svg/icons/menu_icon.svg", text: 'Menu'),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
