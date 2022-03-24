@@ -8,12 +8,14 @@ class ButtonWidget extends StatefulWidget {
   final String? buttonText;
   final void Function()? onPressed;
   final bool isIcon;
+  final String? iconName;
 
   const ButtonWidget({
     Key? key,
     this.buttonText,
     this.onPressed,
     this.isIcon = false,
+    this.iconName,
   }) : super(key: key);
 
   @override
@@ -29,24 +31,26 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(vertical: 14.0.h),
         margin: EdgeInsets.symmetric(horizontal: 65.0.w),
-        child: widget.isIcon ? Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              "assets/svg/icons/plant_icon.svg",
-              color: AppColors.white,
-            ),
-            const SizedBox(
-              width: 10.0,
-            ),
-            Text(widget.buttonText!,
-                style: GoogleFonts.openSans(
-                    textStyle: const TextStyle(),
-                    fontSize: 22.0.sp,
-                    color: AppColors.white)),
-          ],
-        ): Text(widget.buttonText!,
+        child: widget.isIcon
+            ? Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    widget.iconName!,
+                    color: AppColors.white,
+                  ),
+                  SizedBox(
+                    width: 10.0.w,
+                  ),
+                  Text(widget.buttonText!,
+                      style: GoogleFonts.openSans(
+                          textStyle: const TextStyle(),
+                          fontSize: 22.0.sp,
+                          color: AppColors.white)),
+                ],
+              )
+            : Text(widget.buttonText!,
                 style: GoogleFonts.openSans(
                     textStyle: const TextStyle(),
                     fontSize: 22.0.sp,

@@ -8,4 +8,7 @@ class MyRoutes {
   static String resetPassword = '/resetPassword';
   static String userProfile = '/userProfile';
   static String libraryDetail = '/libraryDetail';
+  static String addPlants = '/addPlants';
+  static String myPlants = '/myPlants';
+
 }

@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
 import 'package:plant_tree/modules/index.dart';
+import 'package:plant_tree/routes.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    AddPlant(),
+    MyPlantss(),
     Library(),
     Text('Diseases',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
   addUserData() async {
     final _userProvider = Provider.of<UserProvider>(context, listen: false);
     await _userProvider.refreshUser();
+    // await _userProvider.getPlantInfoLength(_userProvider.getUser.uid!);
   }
 
   @override
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.addPlants),
         child: Container(
             padding: EdgeInsets.only(left: 8.0.w),
             alignment: Alignment.center,

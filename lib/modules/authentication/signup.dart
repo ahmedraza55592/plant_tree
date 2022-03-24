@@ -14,9 +14,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final AuthMethods _authMethods = AuthMethods();
 
   bool _isLoading = false;
@@ -24,9 +24,9 @@ class _SignUpState extends State<SignUp> {
 
   @override
   void dispose() {
-    nameController.dispose();
-    emailController.dispose();
-    passwordController.dispose();
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -35,9 +35,9 @@ class _SignUpState extends State<SignUp> {
       _isLoading = true;
     });
     bool res = await _authMethods.signUp(context,
-        email: emailController.text,
-        name: nameController.text,
-        password: passwordController.text);
+        email: _emailController.text,
+        name: _nameController.text,
+        password: _passwordController.text);
     setState(() {
       _isLoading = false;
     });
@@ -72,19 +72,19 @@ class _SignUpState extends State<SignUp> {
                                 style: TextStyles.body15),
                             SizedBox(height: 150.0.h),
                             TextFieldWidget(
-                              controller: nameController,
+                              controller: _nameController,
                               hintText: "Name",
                               textInputType: TextInputType.name,
                             ),
                             SizedBox(height: 40.0.h),
                             TextFieldWidget(
-                              controller: emailController,
+                              controller: _emailController,
                               hintText: "Email",
                               textInputType: TextInputType.emailAddress,
                             ),
                             SizedBox(height: 40.0.h),
                             TextFieldWidget(
-                              controller: passwordController,
+                              controller: _passwordController,
                               obscureText: true,
                               hintText: "Password",
                               textInputType: TextInputType.visiblePassword,
@@ -92,7 +92,7 @@ class _SignUpState extends State<SignUp> {
                             SizedBox(height: 40.0.h),
                             TextFieldWidget(
                               validator: (value) {
-                                if (value != passwordController.text) {
+                                if (value != _passwordController.text) {
                                   return "Password must be same as above";
                                 }
                                 return null;

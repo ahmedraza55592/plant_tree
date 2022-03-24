@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_tree/styles/colors.dart';
-import 'package:plant_tree/styles/text_style.dart';
+import 'package:plant_tree/styles/styles.dart';
 
 class TextFieldWidget extends StatefulWidget {
   final TextInputType? textInputType;

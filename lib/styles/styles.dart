@@ -2,10 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_tree/styles/colors.dart';
+import 'package:image_picker/image_picker.dart';
 
-
+//Snank Bar
 void showSnackBar(BuildContext context, String content) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(content)));
+}
+
+// Pick image from Gallery or From Mobile
+
+pickImage(ImageSource source) async {
+  final ImagePicker _imagePicker = ImagePicker();
+  XFile? _file = await _imagePicker.pickImage(source: source);
+  if (_file != null) {
+    return await _file.readAsBytes();
+  }
+  debugPrint("No Image has been Selected");
 }
 
 abstract class TextStyles {
@@ -54,7 +66,7 @@ abstract class TextStyles {
           letterSpacing: 0.1,
         ),
       );
-  
+
   static TextStyle get body15 => GoogleFonts.openSans(
         textStyle: TextStyle(
           fontWeight: FontWeight.w400,
@@ -64,7 +76,7 @@ abstract class TextStyles {
           letterSpacing: 0.1,
         ),
       );
-  
+
   static TextStyle get body13 => GoogleFonts.openSans(
         textStyle: TextStyle(
           fontWeight: FontWeight.w400,

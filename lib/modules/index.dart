@@ -7,7 +7,7 @@ export './authentication/login.dart';
 
 // DashBoard
 export './dashboard/homepage.dart';
-export './dashboard/add_plant.dart';
+export 'dashboard/plants.dart';
 export './dashboard/menu.dart';
 export './dashboard/library.dart';
 export './dashboard/lirbrary_detail.dart';

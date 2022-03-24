@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
+import 'package:plant_tree/modules/dashboard/add_plants.dart';
+import 'package:plant_tree/modules/dashboard/my_plants.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:provider/provider.dart';
 import 'package:plant_tree/modules/index.dart';
@@ -40,6 +42,8 @@ class MyApp extends StatelessWidget {
               MyRoutes.resetPassword: (context) => const ResetPassword(),
               MyRoutes.userProfile: (context) => const UserProfile(),
               MyRoutes.libraryDetail: (context) => const LibraryDetail(),
+              MyRoutes.addPlants: (context) => const AddPlant(),
+              MyRoutes.myPlants: (context) => const MyPlants(),
             },
             home: StreamBuilder(
               stream: AuthMethods().authChanges,
