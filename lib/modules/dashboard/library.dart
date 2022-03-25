@@ -46,7 +46,6 @@ class _LibraryState extends State<Library> {
                 colors: AppColors.appBarColor),
           ),
         ),
-        elevation: 0.0,
       ),
       body: Trees.items != null
           ? ListView.builder(

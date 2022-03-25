@@ -3,10 +3,10 @@ import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/routes.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:plant_tree/widgets/index.dart';
+import 'package:plant_tree/widgets/utils.dart';
 
 class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);
-  
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class Menu extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 25.0, left: 23.0),
+          padding: EdgeInsets.only(top: 25.0.h, left: 23.0.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,77 +36,78 @@ class Menu extends StatelessWidget {
                 "Legal",
                 style: TextStyles.body19,
               ),
-              const SizedBox(
-                height: 25.0,
+              SizedBox(
+                height: 25.0.h,
               ),
               TextButtonWidget(
                 text: "Privacy Policy",
-                onPressed: () {},
+                onPressed: () => showTermsAndConditionsBox(context),
               ),
               const Divider(
                 thickness: 1.0,
               ),
               TextButtonWidget(
-                text: "Terms & Conditions",
-                onPressed: () {},
+                  text: "Terms & Conditions",
+                  onPressed: () => showTermsAndConditionsBox(context)
+                  // showTermsAndConditionsBox(context),
+                  ),
+              Divider(
+                thickness: 1.0.w,
               ),
-              const Divider(
-                thickness: 1.0,
-              ),
-              const SizedBox(
-                height: 25.0,
+              SizedBox(
+                height: 25.0.h,
               ),
               Text(
                 "Communcation",
                 style: TextStyles.body19,
               ),
-              const SizedBox(
-                height: 25.0,
+              SizedBox(
+                height: 25.0.h,
               ),
               TextButtonWidget(
                 text: "FAQ",
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(context, MyRoutes.faq),
               ),
-              const Divider(
-                thickness: 1.0,
+              Divider(
+                thickness: 1.0.w,
               ),
               TextButtonWidget(
                 text: "Feedback",
                 onPressed: () {},
               ),
-              const Divider(
-                thickness: 1.0,
+              Divider(
+                thickness: 1.0.w,
               ),
-              const SizedBox(
-                height: 25.0,
+              SizedBox(
+                height: 25.0.h,
               ),
               Text(
                 "Profile",
                 style: TextStyles.body19,
               ),
-              const SizedBox(
-                height: 25.0,
+              SizedBox(
+                height: 25.0.h,
               ),
               TextButtonWidget(
                 text: "User Setting",
                 onPressed: () => Navigator.pushNamed(context, '/userProfile'),
               ),
-              const Divider(
-                thickness: 1.0,
+              Divider(
+                thickness: 1.0.w,
               ),
               TextButtonWidget(
                 text: "All Plants Location",
                 onPressed: () {},
               ),
-              const Divider(
-                thickness: 1.0,
+              Divider(
+                thickness: 1.0.w,
               ),
               TextButtonWidget(
                 text: "Your Plants Location",
                 onPressed: () {},
               ),
-              const Divider(
-                thickness: 1.0,
+              Divider(
+                thickness: 1.0.w,
               ),
               TextButtonWidget(
                   text: "Logout",
@@ -114,8 +115,8 @@ class Menu extends StatelessWidget {
                     AuthMethods().signOut();
                     Navigator.pushReplacementNamed(context, MyRoutes.loginPage);
                   }),
-              const Divider(
-                thickness: 1.0,
+              Divider(
+                thickness: 1.0.w,
               ),
             ],
           ),

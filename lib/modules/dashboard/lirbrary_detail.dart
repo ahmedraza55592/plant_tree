@@ -26,7 +26,6 @@ class LibraryDetail extends StatelessWidget {
                 colors: AppColors.appBarColor),
           ),
         ),
-        elevation: 0.0,
       ),
       body: Padding(
         padding: const EdgeInsets.only(

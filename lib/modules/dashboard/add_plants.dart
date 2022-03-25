@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -173,7 +172,6 @@ class _AddPlantState extends State<AddPlant> {
                 colors: AppColors.appBarColor),
           ),
         ),
-        elevation: 0.0,
       ),
       body: SingleChildScrollView(
         child: Column(

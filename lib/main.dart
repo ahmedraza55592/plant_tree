@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/modules/dashboard/add_plants.dart';
+import 'package:plant_tree/modules/dashboard/faq.dart';
 import 'package:plant_tree/modules/dashboard/my_plants.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:provider/provider.dart';
@@ -44,7 +44,15 @@ class MyApp extends StatelessWidget {
               MyRoutes.libraryDetail: (context) => const LibraryDetail(),
               MyRoutes.addPlants: (context) => const AddPlant(),
               MyRoutes.myPlants: (context) => const MyPlants(),
+              MyRoutes.faq: (context) => const FAQ(),
             },
+            theme: ThemeData(
+              appBarTheme: AppBarTheme(
+                centerTitle: true,
+                elevation: 0.0,
+                iconTheme: IconThemeData(color: AppColors.black, size: 30.0.r)
+              )
+            ),
             home: StreamBuilder(
               stream: AuthMethods().authChanges,
               builder: (context, snapshot) {
@@ -63,7 +71,9 @@ class MyApp extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Scaffold(
                     body: Center(
-                      child: CircularProgressIndicator(color: AppColors.green,),
+                      child: CircularProgressIndicator(
+                        color: AppColors.green,
+                      ),
                     ),
                   );
                 }

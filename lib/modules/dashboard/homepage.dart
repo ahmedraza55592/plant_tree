@@ -1,4 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
 import 'package:plant_tree/modules/index.dart';
 import 'package:plant_tree/routes.dart';

@@ -10,5 +10,5 @@ class MyRoutes {
   static String libraryDetail = '/libraryDetail';
   static String addPlants = '/addPlants';
   static String myPlants = '/myPlants';
-
+  static String faq = '/faq';
 }
