@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:plant_tree/modules/authentication/models/user.dart';
+
 import 'package:plant_tree/modules/dashboard/models/plants_model.dart';
 import 'package:plant_tree/routes.dart';
 import 'package:plant_tree/styles/index.dart';
@@ -103,12 +101,7 @@ class _MyPlantssState extends State<MyPlantss> {
                             isIcon: true,
                             iconName: "assets/svg/icons/plant_icon.svg",
                             buttonText: "My Plants",
-                            onPressed: () async {
-                              // String address = await GeoLocatorService().getAddressFromLatLong(
-                              //     latitude: snapshot.data!.last.latitude!,
-                              //     longitude: snapshot.data!.last.latitude!);
-                              // print(address);
-
+                            onPressed: ()  {
                               Navigator.pushNamed(context, MyRoutes.myPlants);
                             }),
                       ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:plant_tree/modules/authentication/models/user.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:provider/provider.dart';
 
@@ -62,7 +61,18 @@ class _AddLocationState extends State<AddLocation> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Add Location"),
+          title: Text(
+            "Add Location",
+            style: TextStyles.body22,
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  end: Alignment.centerLeft,
+                  begin: Alignment.centerRight,
+                  colors: AppColors.appBarColor),
+            ),
+          ),
           actions: [
             TextButton(
                 onPressed: () async {
@@ -100,43 +110,46 @@ class _AddLocationState extends State<AddLocation> {
                 },
                 child: Text(
                   "Done",
-                  style: TextStyle(color: AppColors.white),
+                  style: TextStyles.body19,
                 ))
           ],
         ),
-        body: userInfo.currentLocation == null ? const Loader() : GoogleMap(
-          initialCameraPosition: CameraPosition(
-              target: LatLng(userInfo.currentLocation!.latitude,
-                  userInfo.currentLocation!.longitude),
-              zoom: 18.0),
-          // onMapCreated: _onMapCreated,
-          onMapCreated: (GoogleMapController controller) {
-            controller = controller;
-          
+        body: userInfo.currentLocation == null
+            ? const Loader()
+            : GoogleMap(
+                initialCameraPosition: CameraPosition(
+                    target: LatLng(userInfo.currentLocation!.latitude,
+                        userInfo.currentLocation!.longitude),
+                    zoom: 18.0),
+                // onMapCreated: _onMapCreated,
+                onMapCreated: (GoogleMapController controller) {
+                  controller = controller;
 
-            var marker = Marker(
-              markerId: MarkerId(
-                  userInfo.currentLocation!.latitude.toString() +
-                      userInfo.currentLocation!.longitude.toString()),
-              position: LatLng(userInfo.currentLocation!.latitude,
-                  userInfo.currentLocation!.longitude),
-              icon: BitmapDescriptor.defaultMarker,
-              infoWindow: InfoWindow(
-                title: userInfo.getUser.name,
-                snippet: userInfo.getUser.email,
-              ),
-            );
+                  var marker = Marker(
+                    markerId: MarkerId(
+                        userInfo.currentLocation!.latitude.toString() +
+                            userInfo.currentLocation!.longitude.toString()),
+                    position: LatLng(userInfo.currentLocation!.latitude,
+                        userInfo.currentLocation!.longitude),
+                    icon: BitmapDescriptor.defaultMarker,
+                    infoWindow: InfoWindow(
+                      title: userInfo.getUser.name,
+                      snippet: userInfo.getUser.email,
+                    ),
+                  );
 
-            setState(() {
-              markers[MarkerId(userInfo.currentLocation!.latitude.toString() +
-                  userInfo.currentLocation!.longitude.toString())] = marker;
-            });
-          },
-          // onCameraMove: userInfo.updateCurrentLocation,
-          myLocationEnabled: true,
-          mapType: MapType.satellite,
-          markers: markers.values.toSet(),
-        )
+                  setState(() {
+                    markers[MarkerId(userInfo.currentLocation!.latitude
+                                .toString() +
+                            userInfo.currentLocation!.longitude.toString())] =
+                        marker;
+                  });
+                },
+                // onCameraMove: userInfo.updateCurrentLocation,
+                myLocationEnabled: true,
+                mapType: MapType.satellite,
+                markers: markers.values.toSet(),
+              )
 
         //     Stack(
         //   children: [

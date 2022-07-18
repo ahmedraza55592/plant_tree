@@ -37,13 +37,21 @@ class GeoLocatorService {
   }
 
   Future<String> getAddressFromLatLong(
-      {required double latitude, required double longitude}) async {
+      {required double latitude, required double longitude, required bool isSubLocality }) async {
     List<Placemark> placemarks =
         await placemarkFromCoordinates(latitude, longitude);
     Placemark place = placemarks[0];
+    // Full Address with Street , SubLocality, Locality , Postal Code and Country
+
+    // String address =
+    //     '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+
+    String shortAddress =
+        '${place.locality}, ${place.country}';
+
     String address =
-        '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
-    return address;
+        '${place.subLocality}, ${place.locality}, ${place.country}';
+    return isSubLocality ? address : shortAddress;
   }
 
   // Future<Position> getCurrentLocation() async {
