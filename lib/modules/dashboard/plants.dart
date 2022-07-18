@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:plant_tree/modules/authentication/models/user.dart';
 import 'package:plant_tree/modules/dashboard/models/plants_model.dart';
 import 'package:plant_tree/routes.dart';
 import 'package:plant_tree/styles/index.dart';
@@ -14,6 +17,9 @@ class MyPlantss extends StatefulWidget {
 }
 
 class _MyPlantssState extends State<MyPlantss> {
+  @override
+  
+
   @override
   Widget build(BuildContext context) {
     final userinfo = Provider.of<UserProvider>(context);
@@ -38,7 +44,7 @@ class _MyPlantssState extends State<MyPlantss> {
       body: StreamBuilder<List<Plants>>(
           stream: userinfo.getUserPlantInfo,
           builder: (context, snapshot) {
-            if (!snapshot.hasData) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
                 child: CircularProgressIndicator(
                   color: AppColors.green,
@@ -87,7 +93,7 @@ class _MyPlantssState extends State<MyPlantss> {
                       children: [
                         Image.asset("assets/png/images/plant_image.png"),
                         Text(
-                          "${snapshot.data!.length} Plant",
+                          "${snapshot.data?.length ?? 100} Plant",
                           style: TextStyles.body15,
                         ),
                         const SizedBox(
@@ -98,7 +104,6 @@ class _MyPlantssState extends State<MyPlantss> {
                             iconName: "assets/svg/icons/plant_icon.svg",
                             buttonText: "My Plants",
                             onPressed: () async {
-                              
                               // String address = await GeoLocatorService().getAddressFromLatLong(
                               //     latitude: snapshot.data!.last.latitude!,
                               //     longitude: snapshot.data!.last.latitude!);

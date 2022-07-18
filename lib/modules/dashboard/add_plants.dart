@@ -158,6 +158,7 @@ class _AddPlantState extends State<AddPlant> {
   @override
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -244,8 +245,9 @@ class _AddPlantState extends State<AddPlant> {
                 postPlant(
                     uid: userProvider.getUser.uid!,
                     userName: userProvider.getUser.name!,
-                    latitude: userProvider.currentMapPosition.latitude,
-                    longitude: userProvider.currentMapPosition.longitude);
+                    latitude: userProvider.currentLocation!.latitude,
+                    longitude: userProvider.currentLocation!.longitude);
+                Navigator.of(context).pop();
               },
             ),
           ],

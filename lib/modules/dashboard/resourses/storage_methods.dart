@@ -25,4 +25,12 @@ class StorageMethods {
     String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;
   }
+
+  // Delete the image file from Firebase Storeage
+  Future deleteImage(
+    String childname,
+    String plantId
+  ) async {
+     await _storage.ref().child(childname).child(plantId).delete();
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:plant_tree/modules/authentication/models/user.dart';
 import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/modules/dashboard/models/plants_model.dart';
@@ -14,31 +14,31 @@ class UserProvider extends ChangeNotifier {
   final GeoLocatorService _geoLocatorService = GeoLocatorService();
   String? address;
 
-  // Position? currentLocation;
-  LatLng? _currentMapPosition = const LatLng(37.4219983, -122.084);
+  Position? currentLocation;
+  // LatLng? _currentMapPosition = const LatLng(37.4219983, -122.084);
 
   // get getCurrentLocation => _geoLocatorService.getGeoLocationPosition;
 
-  LatLng get currentMapPosition => _currentMapPosition!;
+  // LatLng get currentMapPosition => _currentMapPosition!;
 
   // setCurrentPosition(CameraPosition position) {
   //   currentLocation = position.target;
   // }
 
   UserProvider() {
-    setAdd();
-    // setCurrentLocation();
+    // setAdd();
+    setCurrentLocation();
   }
 
-  // setCurrentLocation() async {
-  //   currentLocation = await _geoLocatorService.getGeoLocationPosition();
-  //   notifyListeners();
-  // }
-
-  void updateCurrentLocation(CameraPosition position) {
-    _currentMapPosition = position.target;
+  setCurrentLocation() async {
+    currentLocation = await _geoLocatorService.getGeoLocationPosition();
     notifyListeners();
   }
+
+  // void updateCurrentLocation(CameraPosition position) {
+  //   _currentMapPosition = position.target;
+  //   notifyListeners();
+  // }
 
   // void updateCurrentLocatioUsingFunction(CameraPosition position) {
   //   currentLocation = position.target as Position?;
@@ -53,12 +53,12 @@ class UserProvider extends ChangeNotifier {
   //   notifyListeners();
   // }
 
-  setAdd() async {
-    address = await _geoLocatorService.getAddressFromLatLong(
-        latitude: currentMapPosition.latitude,
-        longitude: currentMapPosition.longitude);
-    notifyListeners();
-  }
+  // setAdd() async {
+  //   address = await _geoLocatorService.getAddressFromLatLong(
+  //       latitude: currentMapPosition.latitude,
+  //       longitude: currentMapPosition.longitude);
+  //   notifyListeners();
+  // }
 
 
   // Future<String> getaddress() async {
@@ -72,6 +72,9 @@ class UserProvider extends ChangeNotifier {
 
   Stream<List<Plants>> get getUserPlantInfo =>
       _firestoreMethods.userPlantsInfo(getUser.uid!);
+
+  Stream<List<User>> get getAllUserInfo =>
+      _firestoreMethods.userAllInfo(getUser.uid!);
 
   // int get noOfPlants => _noOfPlants;
 

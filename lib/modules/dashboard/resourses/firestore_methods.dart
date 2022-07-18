@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:plant_tree/modules/authentication/models/user.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:plant_tree/modules/dashboard/models/plants_model.dart';
 import 'package:plant_tree/modules/dashboard/resourses/storage_methods.dart';
@@ -8,8 +9,10 @@ import 'package:uuid/uuid.dart';
 
 class FirestoreMethods {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  
+
+  // Upload Plant to Firestore
   Future<bool> uploadPlant(
       {required String userName,
       required String plantName,
@@ -41,6 +44,21 @@ class FirestoreMethods {
     return res;
   }
 
+    // Delete A Plant from Firestore
+  Future<bool> deletePlant(String plantId) async {
+    bool res = false;
+    try {
+      // await StorageMethods().deleteImage('plants', plantId);
+      await _firebaseFirestore.collection('plants').doc(plantId).delete();
+      res = true;
+    } catch (err) {
+      res = false;
+    }
+    return res;
+  }
+
+
+
   Stream<List<Plants>> userPlantsInfo(String uid) {
     return _firebaseFirestore
         .collection('plants')
@@ -48,6 +66,15 @@ class FirestoreMethods {
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => Plants.fromMap(doc.data())).toList());
+  }
+
+  Stream<List<User>> userAllInfo(String uid) {
+    return _firebaseFirestore
+        .collection('users')
+        .where("uid", isEqualTo: uid)
+        .snapshots()
+        .map((snapshot) =>
+            snapshot.docs.map((doc) => User.fromMap(doc.data())).toList());
   }
 
   // Future<int> plantsInfo(String uid) async {

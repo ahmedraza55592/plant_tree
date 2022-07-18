@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:plant_tree/modules/authentication/models/user.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:provider/provider.dart';
 
@@ -65,6 +66,7 @@ class _AddLocationState extends State<AddLocation> {
           actions: [
             TextButton(
                 onPressed: () async {
+                  userInfo.setCurrentLocation;
                   showSnackBar(context, "Plant Location has been Added");
                   Navigator.pop(context);
                   // print("Something");
@@ -97,28 +99,27 @@ class _AddLocationState extends State<AddLocation> {
                   // print(userInfo.address);
                 },
                 child: Text(
-                  "Something",
+                  "Done",
                   style: TextStyle(color: AppColors.white),
                 ))
           ],
         ),
-        body: GoogleMap(
+        body: userInfo.currentLocation == null ? const Loader() : GoogleMap(
           initialCameraPosition: CameraPosition(
-              target: LatLng(
-                userInfo.currentMapPosition.latitude,
-                userInfo.currentMapPosition.longitude,
-              ),
+              target: LatLng(userInfo.currentLocation!.latitude,
+                  userInfo.currentLocation!.longitude),
               zoom: 18.0),
           // onMapCreated: _onMapCreated,
           onMapCreated: (GoogleMapController controller) {
             controller = controller;
+          
 
             var marker = Marker(
               markerId: MarkerId(
-                  userInfo.currentMapPosition.latitude.toString() +
-                      userInfo.currentMapPosition.longitude.toString()),
-              position: LatLng(userInfo.currentMapPosition.latitude,
-                  userInfo.currentMapPosition.longitude),
+                  userInfo.currentLocation!.latitude.toString() +
+                      userInfo.currentLocation!.longitude.toString()),
+              position: LatLng(userInfo.currentLocation!.latitude,
+                  userInfo.currentLocation!.longitude),
               icon: BitmapDescriptor.defaultMarker,
               infoWindow: InfoWindow(
                 title: userInfo.getUser.name,
@@ -127,11 +128,11 @@ class _AddLocationState extends State<AddLocation> {
             );
 
             setState(() {
-              markers[MarkerId(userInfo.currentMapPosition.latitude.toString() +
-                  userInfo.currentMapPosition.longitude.toString())] = marker;
+              markers[MarkerId(userInfo.currentLocation!.latitude.toString() +
+                  userInfo.currentLocation!.longitude.toString())] = marker;
             });
           },
-          onCameraMove: userInfo.updateCurrentLocation,
+          // onCameraMove: userInfo.updateCurrentLocation,
           myLocationEnabled: true,
           mapType: MapType.satellite,
           markers: markers.values.toSet(),

@@ -48,9 +48,7 @@ class Menu extends StatelessWidget {
               ),
               TextButtonWidget(
                   text: "Terms & Conditions",
-                  onPressed: () => showTermsAndConditionsBox(context)
-                  // showTermsAndConditionsBox(context),
-                  ),
+                  onPressed: () => showTermsAndConditionsBox(context)),
               Divider(
                 thickness: 1.0.w,
               ),
@@ -73,8 +71,19 @@ class Menu extends StatelessWidget {
               ),
               TextButtonWidget(
                 text: "Feedback",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.myplantdetails);
+                },
               ),
+              Divider(
+                thickness: 1.0.w,
+              ),
+              TextButtonWidget(
+                  text: "Logout",
+                  onPressed: () {
+                    AuthMethods().signOut();
+                    Navigator.pushReplacementNamed(context, MyRoutes.loginPage);
+                  }),
               Divider(
                 thickness: 1.0.w,
               ),
@@ -92,29 +101,6 @@ class Menu extends StatelessWidget {
                 text: "User Setting",
                 onPressed: () => Navigator.pushNamed(context, '/userProfile'),
               ),
-              Divider(
-                thickness: 1.0.w,
-              ),
-              TextButtonWidget(
-                text: "All Plants Location",
-                onPressed: () {},
-              ),
-              Divider(
-                thickness: 1.0.w,
-              ),
-              TextButtonWidget(
-                text: "Your Plants Location",
-                onPressed: () {},
-              ),
-              Divider(
-                thickness: 1.0.w,
-              ),
-              TextButtonWidget(
-                  text: "Logout",
-                  onPressed: () {
-                    AuthMethods().signOut();
-                    Navigator.pushReplacementNamed(context, MyRoutes.loginPage);
-                  }),
               Divider(
                 thickness: 1.0.w,
               ),

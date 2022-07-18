@@ -9,6 +9,18 @@ void showSnackBar(BuildContext context, String content) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(content)));
 }
 
+// Loader
+class Loader extends StatelessWidget {
+  const Loader({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: CircularProgressIndicator(color: AppColors.green),
+    );
+  }
+}
+
 // Pick image from Gallery or From Mobile
 
 pickImage(ImageSource source) async {

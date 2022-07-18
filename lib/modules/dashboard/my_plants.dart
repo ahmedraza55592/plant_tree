@@ -1,12 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:plant_tree/modules/authentication/provider/user_provider.dart';
 import 'package:plant_tree/modules/dashboard/models/plants_model.dart';
+import 'package:plant_tree/modules/dashboard/resourses/firestore_methods.dart';
+import 'package:plant_tree/widgets/index.dart';
 import 'package:provider/provider.dart';
 
 import '../../styles/index.dart';
 
-class MyPlants extends StatelessWidget {
+class MyPlants extends StatefulWidget {
   const MyPlants({Key? key}) : super(key: key);
+
+  @override
+  State<MyPlants> createState() => _MyPlantsState();
+}
+
+class _MyPlantsState extends State<MyPlants> {
+  bool _isLoading = false;
+
+  void deletePlant(String plantId) async {
+    setState(() {
+      _isLoading = true;
+    });
+    try {
+      bool res = await FirestoreMethods().deletePlant(plantId);
+      if (res) {
+        showSnackBar(context, "Plant Removed");
+        setState(() {
+          _isLoading = false;
+        });
+      } else {
+        showSnackBar(context, "Some Error Occurred");
+      }
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+      showSnackBar(context, e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +61,11 @@ class MyPlants extends StatelessWidget {
           stream: userInfo.getUserPlantInfo,
           builder: (context, snapshot) {
             return ListView.builder(
-              itemCount: snapshot.data?.length,
+              itemCount: snapshot.data?.length ?? 0,
               itemBuilder: (context, index) {
                 return Column(
                   children: [
-                    Container(
+                   _isLoading ? const Loader() : Container(
                       margin: EdgeInsets.symmetric(
                           horizontal: 38.0.w, vertical: 30.0.h),
                       height: 200.h,
@@ -45,7 +76,8 @@ class MyPlants extends StatelessWidget {
                       child: Row(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(left: 21.0.w, right: 50.0.w),
+                            padding:
+                                EdgeInsets.only(left: 21.0.w, right: 50.0.w),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,14 +89,19 @@ class MyPlants extends StatelessWidget {
                                 SizedBox(
                                   height: 10.0.h,
                                 ),
-                                Text(snapshot.data?[index].plantName ??
-                                    "No Name Existed", style: TextStyles.body13,),
+                                Text(
+                                  snapshot.data?[index].plantName ??
+                                      "No Name Existed",
+                                  style: TextStyles.body13,
+                                ),
                                 SizedBox(
                                   height: 15.0.h,
                                 ),
-                                Text(
-                                  "Location",
-                                  style: TextStyles.body19,
+                                ButtonWidget(
+                                  buttonText: "Location",
+                                  onPressed: () {
+                                    deletePlant(snapshot.data![index].plantId!);
+                                  },
                                 ),
                                 SizedBox(
                                   height: 10.0.h,
@@ -80,11 +117,14 @@ class MyPlants extends StatelessWidget {
                             child: Container(
                               height: 200.h,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(topRight: Radius.circular(5.0.r), bottomRight: Radius.circular(5.0.r) ),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(5.0.r),
+                                      bottomRight: Radius.circular(5.0.r)),
                                   image: DecorationImage(
                                       image: NetworkImage(
                                           snapshot.data?[index].plantImageUrl ??
-                                              "No Image Found"), fit: BoxFit.fill)),
+                                              "No Image Found"),
+                                      fit: BoxFit.fill)),
                             ),
                           )
                         ],
