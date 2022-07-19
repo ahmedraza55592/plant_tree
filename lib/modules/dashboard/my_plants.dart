@@ -18,7 +18,7 @@ class MyPlants extends StatefulWidget {
 }
 
 class _MyPlantsState extends State<MyPlants> {
-  String address = "";
+  String address = "No Location";
 
   Future<String> getAddress(double lat, double lng) async {
     String address = await GeoLocatorService().getAddressFromLatLong(
@@ -77,7 +77,9 @@ class _MyPlantsState extends State<MyPlants> {
                 getAddress(snapshot.data![index].latitude!,
                         snapshot.data![index].longitude!)
                     .then((value) {
-                  address = value;
+                  setState(() {
+                    address = value;
+                  });
                 });
                 return Column(
                   children: [
@@ -89,8 +91,10 @@ class _MyPlantsState extends State<MyPlants> {
                                 onTap: () async {
                                   String longAddress = await GeoLocatorService()
                                       .getAddressFromLatLong(
-                                          latitude: snapshot.data![index].latitude!,
-                                          longitude: snapshot.data![index].longitude!,
+                                          latitude:
+                                              snapshot.data![index].latitude!,
+                                          longitude:
+                                              snapshot.data![index].longitude!,
                                           isSubLocality: true);
                                   Navigator.push(
                                       context,
@@ -155,7 +159,6 @@ class _MyPlantsState extends State<MyPlants> {
                                       Expanded(
                                         child: Container(
                                           height: 200.h,
-                                          width: 500.w,
                                           decoration: BoxDecoration(
                                               borderRadius: BorderRadius.only(
                                                   topRight:
@@ -167,7 +170,7 @@ class _MyPlantsState extends State<MyPlants> {
                                                           .data?[index]
                                                           .plantImageUrl ??
                                                       "No Image Found"),
-                                                  fit: BoxFit.fill)),
+                                                  fit: BoxFit.cover)),
                                         ),
                                       )
                                     ],

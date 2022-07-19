@@ -41,13 +41,13 @@ class MyPlantDetails extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 225.h,
+                  height: 300.h,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5.0.r),
                       image: DecorationImage(
                           image: NetworkImage(plantInfo!.plantImageUrl!),
-                          fit: BoxFit.fill)),
+                          fit: BoxFit.cover)),
                 ),
                 SizedBox(height: 40.0.h),
                 Container(

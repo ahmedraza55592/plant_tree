@@ -119,6 +119,7 @@ class _AddPlantState extends State<AddPlant> {
                 onPressed: () async {
                   Navigator.pop(context);
                   Uint8List file = await pickImage(ImageSource.camera);
+                  
                   setState(() {
                     _file = file;
                   });
@@ -193,7 +194,7 @@ class _AddPlantState extends State<AddPlant> {
                     height: 300.0.h,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                             alignment: FractionalOffset.topCenter,
                             image: MemoryImage(_file!))),
                   ),
@@ -247,7 +248,6 @@ class _AddPlantState extends State<AddPlant> {
                     userName: userProvider.getUser.name!,
                     latitude: userProvider.currentLocation!.latitude,
                     longitude: userProvider.currentLocation!.longitude);
-                Navigator.of(context).pop();
               },
             ),
           ],

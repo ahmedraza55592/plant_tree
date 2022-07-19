@@ -19,8 +19,7 @@ class _HomePageState extends State<HomePage> {
   static const List<Widget> _widgetOptions = <Widget>[
     MyPlantss(),
     Library(),
-    Text('Diseases',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Disease(),
     Menu(),
   ];
 

@@ -22,6 +22,20 @@ class _UserProfileState extends State<UserProfile> {
     final User user = Provider.of<UserProvider>(context).getUser;
     final top = height - profilePicHeight / 2;
     return Scaffold(
+       appBar: AppBar(
+        title: Text(
+          user.name!,
+          style: TextStyles.body22,
+        ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                end: Alignment.centerLeft,
+                begin: Alignment.centerRight,
+                colors: AppColors.appBarColor),
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

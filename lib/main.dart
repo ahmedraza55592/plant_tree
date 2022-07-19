@@ -3,7 +3,6 @@ import 'package:plant_tree/modules/authentication/resourses/auth_methods.dart';
 import 'package:plant_tree/modules/dashboard/add_plants.dart';
 import 'package:plant_tree/modules/dashboard/faq.dart';
 import 'package:plant_tree/modules/dashboard/my_plants.dart';
-import 'package:plant_tree/modules/dashboard/my_plants_details.dart';
 import 'package:plant_tree/styles/index.dart';
 import 'package:provider/provider.dart';
 import 'package:plant_tree/modules/index.dart';

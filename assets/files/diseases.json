@@ -1,0 +1,68 @@
+{
+    "diseases": [
+        {
+            "id": "1",
+            "name": "Sunscald",
+            "image": "assets/images/sunscald.jpeg",
+            "signsofDamage": "Sunscald symptions will appear asa yellow or white lesions on fiolage and/or fruits. The lesions eventually may turn brown and/or shrivel. fiolage that is commonly affected includes impatiens, hosta, rhododendron, garden beans, peans, peppers and tomatoes.",
+            "howToPrevent": "When it comes to pretecting your fruit plants and vines, common sense care is the best medicine for fruit sunscald prevention. Place the plants where they get enough shade in the afternoon. Give them the right amount of water and fertilizer and be careful when you prune the branches and vines.",
+            "treatment": "For plants already suffering, use a sunshade to restrict their exporsure to UV light. Slowly give them more time each day with the sunshade removed until they are toughened up. This process can take about two weeks, at which time your plant should be ready for the sun."
+        },
+        {
+            "id": "2",
+            "name": "Water Related Issue",
+            "image": "assets/images/waterrelatedissue.jpeg",
+            "signsofDamage": "Lower leaves are yellow. Plant looks wilted. Roots will be rotting or stunted. No new growth. Young leaves will turn brown. Soil will appear green(which is algae).",
+            "howToPrevent": "Rainwater harvesting and recycled wastewater also allow to reduce scarcoty and ease pressures on groundwater and other natural water bodies. Groundwater Recharge, that allows water moving from surface water to groundwater, is a well-known process to prevent water scarcity.",
+            "treatment": "The provision of water treatment chemecals ensures the provision of safe water."
+        },
+        {
+            "id": "3",
+            "name": "Water Excess",
+            "image": "assets/images/waterexcess.jpeg",
+            "signsofDamage": "leaves go yellow and fall off. Dropping old and new leaves alike. Wilting, limp leaves, Turning splotchy black or dark brown. Mushy roots mean overwatering.",
+            "howToPrevent": "Soaking the ground for a longer period of time less ofter, and not watering by hand but using a sprinkler or soaker hose, is the way to handle that situation. Mulch around the plant will also help keep a more even level of moisture.",
+            "treatment": "Move your plant to a shady area even if it is a full-sun plant. Remove any dead or dying leaves. These should be easily recognizable. Check your pot for proper drainage and create additional air space around the roots. Water the soil only when its dry and don't use fertilizer during this time."
+        },
+        {
+            "id": "4",
+            "name": "Virus",
+            "image": "assets/images/virus.jpeg",
+            "signsofDamage": "Typical leaf symptoms of viral disease include mosiac patterns, chloratic or necrotic lesions, yellowing, stripes or streaks, veins clearing, vein banding and leaf rolling and curling.",
+            "howToPrevent": "Remove all infected plants and destroy them. Do Not put them in the compost pile as the virus may persist in the infected plant matter. Burn infected plants or throw them out with the garbage. Monitor the rest of your plants closely expecially those that were located near infected plants. Disinfect the gardening tools after every use and keep a bottle of weak bleach solution or other antiviral disinfectant to wipe your tools down with.",
+            "treatment": "cannot be cured, follow steps of How To Prevent."
+        },
+        {
+            "id": "5",
+            "name": "White Flies",
+            "image": "assets/images/whiteflies.jpeg",
+            "signsofDamage": "Whiteflies tend to prefer to feed on new growth, so check around any newly unfurled leaves first. Check the undersides of leaves—especially around the veinsfor white insects, even if they arent immediately visible, and feel leaf surfaces for sticky honeydew. If the whiteflies are feeding, theyll suddenly all fly off the leaves in a swarm, so its very obvious. You may also find eggs laid on the undersides of leaves. This is the beginning of a new generation! When the eggs hatch, the larvae will look like teeny white ovals without legs; they don’t move but they immediately start sucking the plant juice. This is why gardeners often miss whiteflies until it’s too late. Adult females can produce up to 400 eggs, which hatch in about one week to a month after laying. They are usually laid in a circular pattern. Eggs are pale yellow when newly laid and brown when about to hatch.",
+            "howToPrevent": "Always start with blasting whiteflies (as with aphids and many other insect pests) with your watering hose or a spray bottle. This will cause them to scatter and will dislodge nymphs and eggs to some extent. Consider spraying your plants’ leaves with an insecticidal soap, following the directions on the packaging. Be sure to spray the undersides of leaves, too. Follow up 2 or 3 times, as necessary.",
+            "treatment": "Your first line of defense should be inspecting all plants for pests before you bring them home, as well as keeping any new additions away from the rest of your plants for a period of time. Keeping natural predators around will prevent whiteflies from ever exploding in population. For this reason, avoid using insecticides. Ladybugs, spiders, green lacewing larvae, and dragonflies are a few of many beneficial insects that can control a whitefly population. When it comes to whiteflies, avoid chemical insecticides; they’re usually resistant and all you end up doing is killing the beneficial insects."
+        },
+         {
+            "id": "6",
+            "name": "Verticillium Wilt",
+            "image": "assets/images/verticilliumwilt.jpeg",
+            "signsofDamage": "Plant leaves generally reveal the first hint of verticillium wilt infections. In infected tomatoes, yellowing starts with edges of the oldest, lowest leaves. Sometimes, though not always, symptoms show only on one side of the plant. With severe leaf damage and drop, fruit suffers sun damage. In maples and similar landscape plants, a single large branch or stem may yellow and droop, then brown and die. Like fusarium wilt, verticillium wilt discolors the vascular system of affected plants near their base. If cut in half, stems may show green or brown streaks. In some cases, the outside of the stem, branch, or trunk becomes discolored, too.",
+            "howToPrevent": "There is no effective treatment for verticillium wilt. For affected vegetables, remove and dispose of the plant; don't compost it. For landscape plants, prune out affected branches and dispose of them immediately. Do not use infected wood for chips for landscape mulch. Careful attention to watering and other plant needs may help extend a plant's life as well.",
+            "treatment": "If verticillium wilt finds its way into your garden, it can linger in soil for many years. Avoid planting the same crop or related crops in affected areas for at least four years. If not, you may help prolong its stay."
+        },
+        {
+            "id": "7",
+            "name": "Iron Deficiency",
+            "image": "assets/images/irondeficiency.jpeg",
+            "signsofDamage": "The most obvious symptom of iron deficiency in plants is commonly called leaf chlorosis. This is where the leaves of the plant turn yellow, but the veins of the leaves stay green. Typically, leaf chlorosis will start at the tips of new growth in the plant and will eventually work its way to older leaves on the plant as the deficiency gets worse. Other signs can include poor growth and leaf loss, but these symptoms will always be coupled with the leaf chlorosis.",
+            "howToPrevent": "Rarely is an iron deficiency in plants caused by a lack of iron in the soil. Iron is typically abundant in the soil, but a variety of soil conditions can limit how well a plant can get to the iron in the soil. Iron chlorosis in plants is normally cause by one of four reasons, Soil pH is too high, Soil has too much clay, Compacted or overly wet soil, Too much phosphorus in the soil.",
+            "treatment": "Have your soil tested at your local extension service. If the soil pH is over 7, the soil pH is restricting the ability of the plant to get iron from the soil. Clay soil lacks organic material. The lack of organic material is actually the reason that a plant cannot get iron from clay soil. There are trace nutrients in organic material that the plant needs in order to take the iron into its roots. Too much phosphorus can block the uptake of iron by the plant and cause leaf chlorosis. Typically, this condition is caused by using a fertilizer that is too high in phosphorus. Use a fertilizer that is lower in phosphorus (the middle number) to help bring the soil back in balance."
+        },
+        {
+            "id": "8",
+            "name": "Magnesium Deficiency",
+            "image": "assets/images/magnesiumdeficiecy.jpeg",
+            "signsofDamage": "Yellowing between the leaf veins, sometimes with reddish brown tints and early leaf fall. Magnesium deficiency is commom in tomatoes, apples, grape vines, raspberries, roses and rhododendrons.",
+            "howToPrevent": "Chemical. Use a magnesium leaf spray, such as Epsom salts, on potatoes for a quick, temporary solution in summer. Apply Epsom salts or calcium-magnesium carbonate to the soil in autumn or winter to remedy the deficiency for next year.",
+            "treatment": "Too much phosphorus can block the uptake of iron by the plant and cause leaf chlorosis. Typically, this condition is caused by using a fertilizer that is too high in phosphorus. Use a fertilizer that is lower in phosphorus (the middle number) to help bring the soil back in balance."
+        }
+    ]
+}
