@@ -25,7 +25,7 @@ class Loader extends StatelessWidget {
 
 pickImage(ImageSource source) async {
   final ImagePicker _imagePicker = ImagePicker();
-  XFile? _file = await _imagePicker.pickImage(source: source);
+  XFile? _file = await _imagePicker.pickImage(source: source, imageQuality: 75);
   if (_file != null) {
     return await _file.readAsBytes();
   }

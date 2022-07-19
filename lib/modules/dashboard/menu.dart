@@ -72,7 +72,7 @@ class Menu extends StatelessWidget {
               TextButtonWidget(
                 text: "Feedback",
                 onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.myplantdetails);
+                  Navigator.pushNamed(context, MyRoutes.feedback);
                 },
               ),
               Divider(

@@ -39,7 +39,7 @@ class LibraryDetail extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
                     image: DecorationImage(
-                        image: NetworkImage(items!.image!), fit: BoxFit.cover)),
+                        image: AssetImage(items!.image!), fit: BoxFit.cover)),
               ),
               const SizedBox(height: 20.0),
               Container(

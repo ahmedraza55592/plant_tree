@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         onTabSelected: _onItemTapped,
         items: [
           FABBottomAppBarItem(
-              iconName: "assets/svg/icons/plant_icon.svg", text: 'Add Plant'),
+              iconName: "assets/svg/icons/plant_icon.svg", text: 'Home'),
           FABBottomAppBarItem(
               iconName: "assets/svg/icons/library_icon.svg", text: 'Library'),
           FABBottomAppBarItem(

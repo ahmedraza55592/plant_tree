@@ -77,7 +77,7 @@ class _LibraryState extends State<Library> {
                           borderRadius: BorderRadius.circular(15.0),
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: NetworkImage(Trees.items![index].image!),
+                            image: AssetImage(Trees.items![index].image!),
                           ),
                         ),
                       ),

@@ -23,33 +23,6 @@ class _AddPlantState extends State<AddPlant> {
   final TextEditingController _plantNameController = TextEditingController();
   Uint8List? _file;
   bool _isLoading = false;
-  // final GeoLocatorService _geoLocatorService = GeoLocatorService();
-
-  // String address = "Some Address";
-
-  // Future<void> getAddressFromLatLong(
-  //     {required double latitude, required double longitude}) async {
-  //   List<Placemark> placemarks =
-  //       await placemarkFromCoordinates(latitude, longitude);
-  //   Placemark place = placemarks[0];
-  //   address =
-  //       '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
-  //   setState(() {});
-  // }
-
-  // @override
-  // void initState() {
-  //   final userProvider = Provider.of<UserProvider>(context, listen: false);
-
-  //   getAddressFromLatLong(
-  //       latitude: userProvider.currentMapPosition.latitude,
-  //       longitude: userProvider.currentMapPosition.longitude);
-  //   setState(() {
-
-  //   });
-  //   super.initState();
-  // }
-
   @override
   void dispose() {
     _plantNameController.dispose();

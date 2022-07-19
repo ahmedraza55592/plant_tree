@@ -14,6 +14,7 @@ export './dashboard/lirbrary_detail.dart';
 export './dashboard/diseases.dart';
 export './dashboard/disease_detail.dart';
 export './dashboard/my_plants_details.dart';
+export './dashboard/feedback_screen.dart';
 
 //Profile
 export 'profile/user_profile.dart';

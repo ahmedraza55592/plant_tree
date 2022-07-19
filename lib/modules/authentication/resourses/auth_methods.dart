@@ -62,10 +62,8 @@ class AuthMethods {
       required String email}) async {
     bool res = false;
     try {
-
       UserCredential cred = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-
 
       if (cred.user != null) {
         model.User user = model.User(
@@ -179,5 +177,6 @@ class AuthMethods {
 
   Future<void> signOut() async {
     await _auth.signOut();
+    await GoogleSignIn().signOut();
   }
 }

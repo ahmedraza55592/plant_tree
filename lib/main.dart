@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
               MyRoutes.myPlants: (context) => const MyPlants(),
               MyRoutes.faq: (context) => const FAQ(),
               // MyRoutes.myplantdetails: (context) => const MyPlantDetails(),
+              MyRoutes.feedback: (context) => const FeedBack(),
             },
             theme: ThemeData(
               appBarTheme: AppBarTheme(
