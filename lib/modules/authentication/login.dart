@@ -26,12 +26,25 @@ class _LoginState extends State<Login> {
     super.dispose();
   }
 
-  loginUser() async {
+  loginUserWithEmailAndPassword() async {
     setState(() {
       _isLoading = true;
     });
     bool res = await _authMethods.singIn(context,
         email: emailController.text, password: passwordController.text);
+    setState(() {
+      _isLoading = false;
+    });
+    if (res) {
+      Navigator.pushReplacementNamed(context, MyRoutes.homePage);
+    }
+  }
+
+  loginUserWithGoogle() async {
+    setState(() {
+      _isLoading = true;
+    });
+    bool res = await _authMethods.signInWithGoogle(context);
     setState(() {
       _isLoading = false;
     });
@@ -48,6 +61,7 @@ class _LoginState extends State<Login> {
             ? Center(
                 child: CircularProgressIndicator(
                   color: AppColors.green,
+                  backgroundColor: Colors.transparent,
                 ),
               )
             : SingleChildScrollView(
@@ -79,7 +93,7 @@ class _LoginState extends State<Login> {
                           ),
                           SizedBox(height: 26.0.h),
 
-                          InkWell(
+                          GestureDetector(
                             onTap: () => Navigator.pushNamed(
                                 context, MyRoutes.resetPasswordEmail),
                             child: Container(
@@ -93,7 +107,7 @@ class _LoginState extends State<Login> {
                           SizedBox(height: 26.0.h),
                           ButtonWidget(
                             buttonText: "Login",
-                            onPressed: loginUser,
+                            onPressed: loginUserWithEmailAndPassword,
                           ),
                           SizedBox(height: 45.0.h),
                           Container(
@@ -125,13 +139,14 @@ class _LoginState extends State<Login> {
                           SizedBox(height: 24.0.h),
                           GoogleButton(
                             buttonText: "Continue With Google",
-                            onPressed: () async {
-                              bool res =
-                                  await _authMethods.signInWithGoogle(context);
-                              if (res) {
-                                Navigator.pushReplacementNamed(context, MyRoutes.homePage);
-                              }
-                            },
+                            onPressed: loginUserWithGoogle,
+                            // onPressed: () async {
+                            //   bool res =
+                            //       await _authMethods.signInWithGoogle(context);
+                            //   if (res) {
+                            //     Navigator.pushReplacementNamed(context, MyRoutes.homePage);
+                            //   }
+                            // },
                             // onPressed: () {
 
                             //   debugPrint("Google button pressed");

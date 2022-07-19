@@ -13,7 +13,13 @@ class ResetPasswordEmail extends StatefulWidget {
 class _ResetPasswordEmailState extends State<ResetPasswordEmail> {
   final TextEditingController _emailController = TextEditingController();
   final AuthMethods _authMethods = AuthMethods();
-  
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

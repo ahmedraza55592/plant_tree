@@ -11,17 +11,21 @@ class TextButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onPressed,
-      child: Text(
-        text!,
-        style: GoogleFonts.openSans(
-          textStyle: TextStyle(
-            color: AppColors.black.withOpacity(.5),
-            fontSize: 15.0,
-            fontStyle: FontStyle.normal,
+      child: Row(
+        children: [
+          Text(
+            text!,
+            style: GoogleFonts.openSans(
+              textStyle: TextStyle(
+                color: AppColors.black.withOpacity(.5),
+                fontSize: 15.0,
+                fontStyle: FontStyle.normal,
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
